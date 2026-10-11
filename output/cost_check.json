@@ -1,0 +1,4685 @@
+[
+  {
+    "time": "2026-10-10T14:22:59",
+    "config": "claude-sonnet-5-5 effort=default cache=off",
+    "label": "R1 caching off baseline",
+    "passed": 5,
+    "total": 8,
+    "cost_usd": 0.34434,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.016342,
+        "secs": 5.7,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 2,
+          "tool_calls": 1,
+          "input_tokens": 7281,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 178,
+          "est_cost_usd": 0.016342
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a pullover hoodie with a kangaroo pocket, a drawstring hood, and large white YALE lettering across the chest. It comes in navy blue and white. Want me to check whether your size is in stock?",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.064622,
+        "secs": 6.8,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 7,
+          "tool_calls": 5,
+          "input_tokens": 29826,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 497,
+          "est_cost_usd": 0.064622
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest', category='Crewnecks')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "x()"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is a navy crewneck sweatshirt with a white YALE BASEBALL wordmark on the left chest. It has a ribbed collar, cuffs, and waistband. The listed colors are navy and white, and it's $58. Right now it's in stock in S, M, L, and XXL. Go Bulldogs!",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.119774,
+        "secs": 10.7,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 10,
+          "tool_calls": 9,
+          "input_tokens": 55317,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 914,
+          "est_cost_usd": 0.119774
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest', category='Crewnecks')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "search_products(category='Crewnecks', size_in_stock='XS')",
+          "search_products(keywords='left chest', category='Crewnecks', size_in_stock='XS')",
+          "get_product_info(product='diving-left-chest-crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "check_stock(product='diving-left-chest-crewneck', size='XS')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in size XS. It's still available in S, M, L and XXL (only 5 left in M). If you want XS, the Diving Left Chest Crewneck is a similar navy left-chest style at $58, with 20 available in XS. Go Bulldogs!",
+        "product_ids": [
+          "baseball-left-chest-crewneck",
+          "diving-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "error",
+        "error": "UsageLimitExceeded: The next request would exceed the request_limit of 10. Consider raising the limit, or see the docs on usage limits for budget-aware patterns: https://pydantic.dev/docs/ai/core-concepts/agent/#usage-limits"
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.10044,
+        "secs": 10.0,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 10,
+          "tool_calls": 9,
+          "input_tokens": 46795,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 685,
+          "est_cost_usd": 0.10044
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "get_product_info(product='basic-hoodie-big-yale')"
+        ],
+        "reply": "Yes, but it's running low. There are only 2 left in XL for the Basic Hoodie Big Yale ($68). It's also in stock in XXL (25 available) if you'd like more room. Go Bulldogs!",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "error",
+        "error": "UsageLimitExceeded: The next tool call(s) would exceed the tool_calls_limit of 12 (tool_calls=14). Consider raising the limit, or see the docs on usage limits for budget-aware patterns: https://pydantic.dev/docs/ai/core-concepts/agent/#usage-limits"
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.04316,
+        "secs": 6.2,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 18050,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 706,
+          "est_cost_usd": 0.04316
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "get_product_info(product='yale-sports-hoodie-hockey')"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most left in XL, with 25 available. It's $68 in heather gray, with a navy YALE HOCKEY graphic and a kangaroo pocket. Runners-up in XL are the District Vit Hoodie Vintage Bulldog (15 left, $68) and the Yale Sports Hoodie Diving (12 left, $68). The Yale Sports Hoodie Tennis also has 12 in XL and is only $45.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving",
+          "yale-sports-hoodie-tennis"
+        ]
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "error",
+        "error": "UsageLimitExceeded: The next request would exceed the request_limit of 10. Consider raising the limit, or see the docs on usage limits for budget-aware patterns: https://pydantic.dev/docs/ai/core-concepts/agent/#usage-limits"
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:27:41",
+    "config": "claude-sonnet-5-5 effort=default cache=off",
+    "label": "R2-cache-off",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.26029,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.024132,
+        "secs": 6.4,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 11026,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 208,
+          "est_cost_usd": 0.024132
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a pullover with a kangaroo pocket, a drawstring hood, and large white YALE lettering across the chest. It comes in navy blue and white. Want me to check whether your size is in stock?",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.033476,
+        "secs": 3.9,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 15243,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 299,
+          "est_cost_usd": 0.033476
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest', category='Crewnecks')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck has a white YALE BASEBALL wordmark on the left chest. The sweatshirt itself is navy with a ribbed collar, cuffs, and waistband. It's $58 and comes in navy and white. Go Bulldogs!",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.034468,
+        "secs": 4.5,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 15629,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 321,
+          "est_cost_usd": 0.034468
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest', category='Crewnecks')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck ($58) is sold out in size XS. It's still in stock in S (15 available), M (only 5 left), L (25 available), and XXL (25 available). If you'd like, I can look for similar crewnecks that come in XS.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.034504,
+        "secs": 4.7,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 15727,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 305,
+          "est_cost_usd": 0.034504
+        },
+        "tool_calls": [
+          "search_products(keywords='Harvard', category='T-Shirts')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "There are 20 available in size M of the 2025 Yale Vs Harvard T-Shirt, at $32. It comes in heather gray, white, red, and navy blue. Size L is running low, with only 2 left.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ]
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.024994,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 11442,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 211,
+          "est_cost_usd": 0.024994
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale ($68) is available in XL, but only 2 are left. If you want one, I'd grab it soon. XXL has 25 available if you need more room.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.037536,
+        "secs": 5.8,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 4,
+          "input_tokens": 16228,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 508,
+          "est_cost_usd": 0.037536
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'tri-blend-sports-hockey-t-shirt', 'ice-hockey-left-chest-hoodie', 'yale-sports-t-shirt-field-hockey'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in our catalogue. We do have other hockey items, though:\n\n- Yale Sports Hoodie Hockey, $68. It comes in heather gray and navy blue, and medium is in stock.\n- Tri Blend Sports Hockey T Shirt, $32. Medium isn't in stock. Only S and XL are available.\n- Ice Hockey Left Chest Hoodie, $68. Medium isn't in stock. Only XS, S and XXL are available.\n- Yale Sports T Shirt Field Hockey, $32. Medium is in stock.\n\nThe Yale Sports Hoodie Hockey is the closest match if you want something hockey-themed in medium.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "tri-blend-sports-hockey-t-shirt",
+          "ice-hockey-left-chest-hoodie",
+          "yale-sports-t-shirt-field-hockey"
+        ]
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.0412,
+        "secs": 5.7,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 17855,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 549,
+          "est_cost_usd": 0.0412
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most gray hoodie stock in XL. It's $68 in heather gray, and 25 are available in XL.\n\nNext in line are the District Vit Hoodie Vintage Bulldog (dark heather gray, $68) with 15 in XL, and the Yale Sports Hoodie Diving ($68) with 12 in XL. If you'd like to spend less, the Yale Sports Hoodie Tennis is $45 and has 12 in XL.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving"
+        ]
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.029978,
+        "secs": 4.4,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 12594,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "output_tokens": 479,
+          "est_cost_usd": 0.029978
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'district-tri-blend-t-shirt-vintage-shield', '2025-yale-vs-harvard-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt'])"
+        ],
+        "reply": "Yes, we have plenty of navy tees under $40. I found 19 matches, and the six I'm showing are all $32:\n\n- Boola Boola T Shirt, in S, M, XS, XL and XXL\n- District Tri Blend T Shirt Vintage Shield, in XS, S, L, XL and XXL\n- 2025 Yale Vs Harvard T Shirt, in all sizes XS–XXL\n- Football Left Chest T Shirt, in S, L and XXL\n- School Of Management Crest T Shirt, in XS, S, M, L and XXL\n- School Of Nursing Crest T Shirt, in S, M and L\n\nTell me your size or a theme and I can narrow these down.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "district-tri-blend-t-shirt-vintage-shield",
+          "2025-yale-vs-harvard-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt"
+        ]
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:28:21",
+    "config": "claude-sonnet-5-5 effort=default cache=on",
+    "label": "R2-sonnet-default-a",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.06401,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.005254,
+        "secs": 6.9,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 10603,
+          "cache_write_tokens": 415,
+          "output_tokens": 208,
+          "est_cost_usd": 0.005254
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a pullover with a kangaroo pocket, a drawstring hood, and large white YALE lettering across the chest. It comes in navy blue and white. Want me to check whether your size is in stock?",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.006057,
+        "secs": 4.0,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15233,
+          "cache_write_tokens": 0,
+          "output_tokens": 299,
+          "est_cost_usd": 0.006057
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest', category='Crewnecks')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck has a white YALE BASEBALL wordmark on the left chest. The sweatshirt itself is navy, with a ribbed collar, cuffs and waistband. It's $58 and comes in navy and white. Go Bulldogs!",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.006444,
+        "secs": 4.1,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15619,
+          "cache_write_tokens": 0,
+          "output_tokens": 330,
+          "est_cost_usd": 0.006444
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest', category='Crewnecks')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck ($58) is sold out in size XS. It's still in stock in S (15 available), M (only 5 left), L (25 available), and XXL (25 available). It comes in navy and white. If you'd like, I can look for similar crewnecks that come in XS.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.008204,
+        "secs": 3.9,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14821,
+          "cache_write_tokens": 896,
+          "output_tokens": 298,
+          "est_cost_usd": 0.008204
+        },
+        "tool_calls": [
+          "search_products(keywords='Harvard', category='T-Shirts')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "There are 20 mediums available of the 2025 Yale Vs Harvard T-shirt, at $32. It comes in heather gray, white, red, and navy blue. Bulldog pride!",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ]
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.004443,
+        "secs": 4.3,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11434,
+          "cache_write_tokens": 0,
+          "output_tokens": 214,
+          "est_cost_usd": 0.004443
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, but only 2 are left in XL for the Basic Hoodie Big Yale ($68). If you want one, I'd grab it soon. XXL has 25 available if you'd like a roomier fit.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.011353,
+        "secs": 5.1,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 4,
+          "input_tokens": 10,
+          "cache_read_tokens": 14901,
+          "cache_write_tokens": 1317,
+          "output_tokens": 506,
+          "est_cost_usd": 0.011353
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'tri-blend-sports-hockey-t-shirt', 'ice-hockey-left-chest-hoodie', 'yale-sports-t-shirt-field-hockey'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in our catalogue. We do carry other hockey items, and these are the closest matches:\n\n- Yale Sports Hoodie Hockey, $68. Medium is in stock (heather gray or navy blue).\n- Tri Blend Sports Hockey T Shirt, $32. Medium isn't in stock. Only S and XL are available.\n- Ice Hockey Left Chest Hoodie, $68. Medium isn't in stock. Only XS, S and XXL are available.\n- Yale Sports T Shirt Field Hockey, $32. Medium is in stock.\n\nI haven't checked exact medium unit counts. I can do that for any of these if you'd like.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "tri-blend-sports-hockey-t-shirt",
+          "ice-hockey-left-chest-hoodie",
+          "yale-sports-t-shirt-field-hockey"
+        ]
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.011795,
+        "secs": 5.0,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 16125,
+          "cache_write_tokens": 1564,
+          "output_tokens": 464,
+          "est_cost_usd": 0.011795
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most gray hoodies left in XL, with 25 available. It's $68 and comes in heather gray (and navy blue). The next closest are the District Vit Vintage Bulldog hoodie ($68) with 15 in XL, and the Diving and Tennis hoodies with 12 each. The Tennis one is only $45.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey"
+        ]
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.01046,
+        "secs": 4.5,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11218,
+          "cache_write_tokens": 1368,
+          "output_tokens": 478,
+          "est_cost_usd": 0.01046
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'district-tri-blend-t-shirt-vintage-shield', '2025-yale-vs-harvard-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt'])"
+        ],
+        "reply": "Yes, we have plenty. I found 19 navy tees under $40, and these six are all $32:\n\n- Boola Boola T Shirt (in stock: XS, S, M, XL, XXL)\n- District Tri Blend T Shirt Vintage Shield (XS, S, L, XL, XXL)\n- 2025 Yale Vs Harvard T Shirt (XS–XXL)\n- Football Left Chest T Shirt (S, L, XXL)\n- School Of Management Crest T Shirt (XS, S, M, L, XXL)\n- School Of Nursing Crest T Shirt (S, M, L)\n\nTell me your size and I'll narrow it down, or I can look for a particular design.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "district-tri-blend-t-shirt-vintage-shield",
+          "2025-yale-vs-harvard-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt"
+        ]
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:29:09",
+    "config": "claude-haiku-5-5 effort=default cache=on",
+    "label": "R2-haiku-a",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00489,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000648,
+        "secs": 6.0,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 7197,
+          "cache_write_tokens": 3821,
+          "output_tokens": 196,
+          "est_cost_usd": 0.000648
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with a front kangaroo pocket, drawstring hood, and large white YALE lettering across the chest. It also comes in white.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000324,
+        "secs": 2.6,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 3,
+          "input_tokens": 8,
+          "cache_read_tokens": 10729,
+          "cache_write_tokens": 782,
+          "output_tokens": 237,
+          "est_cost_usd": 0.000324
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck has a white \"YALE BASEBALL\" wordmark on the left chest. It comes in navy and white, and it's priced at $58.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000769,
+        "secs": 6.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 6,
+          "tool_calls": 4,
+          "input_tokens": 16,
+          "cache_read_tokens": 23537,
+          "cache_write_tokens": 1300,
+          "output_tokens": 740,
+          "est_cost_usd": 0.000769
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck', size_in_stock='XS')",
+          "search_products(keywords='baseball crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck', 'yale-sports-crewneck-baseball'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is sold out in XS. It's in stock in S, M (only 5 left), L, and XXL, in navy or white, at $58. The Yale Sports Crewneck Baseball ($58) is also in stock in S, M, L, and XL, in heather gray or navy blue, if you'd like a similar style.",
+        "product_ids": [
+          "baseball-left-chest-crewneck",
+          "yale-sports-crewneck-baseball"
+        ]
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000415,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14831,
+          "cache_write_tokens": 901,
+          "output_tokens": 306,
+          "est_cost_usd": 0.000415
+        },
+        "tool_calls": [
+          "search_products(keywords='2025 Yale vs Harvard T-shirt')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums left of the 2025 Yale vs Harvard T-Shirt, priced at $32. It also comes in XS, S, XL, and XXL, and only 2 are left in L.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ]
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000286,
+        "secs": 2.5,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 10813,
+          "cache_write_tokens": 621,
+          "output_tokens": 198,
+          "est_cost_usd": 0.000286
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68 if you'd like to grab one.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000968,
+        "secs": 7.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 6,
+          "tool_calls": 5,
+          "input_tokens": 16,
+          "cache_read_tokens": 25204,
+          "cache_write_tokens": 1966,
+          "output_tokens": 938,
+          "est_cost_usd": 0.000968
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='M')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'ice-hockey-left-chest-hoodie', 'yale-sports-creqneck-field-hockey'])"
+        ],
+        "reply": "We don't carry a Yale hockey jersey. The online catalogue has no jerseys, so I can't give you a price or medium availability for one.\n\nThe closest option is the Yale Sports Hoodie Hockey at $68. It comes in heather gray and navy blue, and size M is low stock with only 5 left. I've also shown the Ice Hockey Left Chest Hoodie ($68) and the Yale Sports Crewneck Field Hockey ($58) in case you want something similar.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "ice-hockey-left-chest-hoodie",
+          "yale-sports-creqneck-field-hockey"
+        ]
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.000704,
+        "secs": 4.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 16251,
+          "cache_write_tokens": 1824,
+          "output_tokens": 624,
+          "est_cost_usd": 0.000704
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most in XL, with 25 available. It's $68 and comes in heather gray and navy blue.\n\nThe next closest in XL are the Yale Sports Hoodie Diving ($68, 12 in XL) and the District Vit Hoodie Vintage Bulldog ($68, 15 in XL, dark heather gray).",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving"
+        ]
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000779,
+        "secs": 5.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 16254,
+          "cache_write_tokens": 1661,
+          "output_tokens": 815,
+          "est_cost_usd": 0.000779
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'district-tri-blend-t-shirt-vintage-shield', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', '2025-yale-vs-harvard-t-shirt', 'school-of-nursing-crest-t-shirt'])"
+        ],
+        "reply": "My last reply went through: six navy tees under $40, all $32, shown as cards above. I don't see an error on my end. If you tell me a size, I can check whether any of them are in stock in that size.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "district-tri-blend-t-shirt-vintage-shield",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "2025-yale-vs-harvard-t-shirt",
+          "school-of-nursing-crest-t-shirt"
+        ]
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:29:51",
+    "config": "claude-haiku-5-5 effort=low cache=on",
+    "label": "R2-haiku-low-a",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00399,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000245,
+        "secs": 7.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 10703,
+          "cache_write_tokens": 315,
+          "output_tokens": 196,
+          "est_cost_usd": 0.000245
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with a front kangaroo pocket, drawstring hood, and large white YALE lettering across the chest. It also comes in white.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000355,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14851,
+          "cache_write_tokens": 625,
+          "output_tokens": 254,
+          "est_cost_usd": 0.000355
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck has a white \"YALE BASEBALL\" wordmark on the left chest. It comes in navy and white, and it's $58. It's currently available in S, M, L, and XXL.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000488,
+        "secs": 4.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 12,
+          "cache_read_tokens": 18930,
+          "cache_write_tokens": 961,
+          "output_tokens": 354,
+          "est_cost_usd": 0.000488
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck', size_in_stock='XS')",
+          "search_products(keywords='baseball crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in XS. It's available in S (15 left), M (only 5 left), L, and XXL. It comes in navy and white at $58.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000388,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14899,
+          "cache_write_tokens": 770,
+          "output_tokens": 284,
+          "est_cost_usd": 0.000388
+        },
+        "tool_calls": [
+          "search_products(keywords='Yale vs Harvard T-shirt')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums available in the 2025 Yale Vs Harvard T Shirt, which is $32. It also comes in heather gray, white, red, and navy blue if you'd like a different color.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ]
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000275,
+        "secs": 2.5,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 10917,
+          "cache_write_tokens": 517,
+          "output_tokens": 201,
+          "est_cost_usd": 0.000275
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68 if you'd like to grab yours soon.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000876,
+        "secs": 7.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 14,
+          "cache_read_tokens": 20153,
+          "cache_write_tokens": 1667,
+          "output_tokens": 930,
+          "est_cost_usd": 0.000876
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-creqneck-field-hockey', 'yale-sports-t-shirt-field-hockey'])"
+        ],
+        "reply": "I've put the three closest options on the page above. We don't have a Yale hockey jersey in the online catalogue, so these are the nearest matches, and each lists medium as in stock. If you tell me which one you're considering, I can check the exact number of medium units left.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "yale-sports-t-shirt-field-hockey"
+        ]
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.000613,
+        "secs": 5.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 16053,
+          "cache_write_tokens": 1161,
+          "output_tokens": 613,
+          "est_cost_usd": 0.000613
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey is still my answer: it has 25 units in XL, at $68 in heather gray or navy blue. Search results are sorted by XL stock, so no other gray hoodie under $70 has more. If you'd like, I can check stock in another size.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey"
+        ]
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000751,
+        "secs": 5.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 16342,
+          "cache_write_tokens": 1559,
+          "output_tokens": 784,
+          "est_cost_usd": 0.000751
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'district-tri-blend-t-shirt-vintage-shield', 'football-left-chest-t-shirt', '2025-yale-vs-harvard-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt'])"
+        ],
+        "reply": "My last reply was complete: six navy tees under $40, all $32, with cards shown. There are 19 matches in total, so I can narrow by size or style if you have something specific in mind. Which size do you need?",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "district-tri-blend-t-shirt-vintage-shield",
+          "football-left-chest-t-shirt",
+          "2025-yale-vs-harvard-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt"
+        ]
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:30:30",
+    "config": "claude-sonnet-5-5 effort=low cache=on",
+    "label": "R2-sonnet-low-a",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.06654,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.005044,
+        "secs": 6.5,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 10703,
+          "cache_write_tokens": 315,
+          "output_tokens": 210,
+          "est_cost_usd": 0.005044
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover with a kangaroo pocket, a drawstring hood, and large white YALE lettering across the chest. It comes in navy blue and white. Want me to check whether your size is in stock?",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.007428,
+        "secs": 5.1,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14689,
+          "cache_write_tokens": 544,
+          "output_tokens": 311,
+          "est_cost_usd": 0.007428
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest', category='Crewnecks')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck has a white YALE BASEBALL wordmark on the left chest. The sweatshirt itself is navy with a ribbed collar, cuffs, and waistband. It's $58 and is listed in navy and white. Right now it's in stock in S, M, L, and XXL.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.007851,
+        "secs": 4.0,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14868,
+          "cache_write_tokens": 751,
+          "output_tokens": 298,
+          "est_cost_usd": 0.007851
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest', category='Crewnecks')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck ($58) is sold out in size XS. It's still in stock in S (15 available), M (only 5 left), L (25 available) and XXL (25 available).",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.007881,
+        "secs": 3.8,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14931,
+          "cache_write_tokens": 786,
+          "output_tokens": 291,
+          "est_cost_usd": 0.007881
+        },
+        "tool_calls": [
+          "search_products(keywords='Harvard', category='T-Shirts')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "There are 20 available in size M of the 2025 Yale Vs Harvard T-shirt, which is $32. It comes in heather gray, white, red, and navy blue.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ]
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.005662,
+        "secs": 3.3,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 10917,
+          "cache_write_tokens": 517,
+          "output_tokens": 217,
+          "est_cost_usd": 0.005662
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale ($68) is available in XL, but only 2 are left. If you want one, I'd order soon. XXL has 25 in stock if you'd like a roomier fit.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.011424,
+        "secs": 5.5,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 4,
+          "input_tokens": 10,
+          "cache_read_tokens": 15006,
+          "cache_write_tokens": 1281,
+          "output_tokens": 520,
+          "est_cost_usd": 0.011424
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-t-shirt-field-hockey', 'yale-sports-creqneck-field-hockey', 'tri-blend-sports-hockey-t-shirt', 'ice-hockey-left-chest-hoodie'])"
+        ],
+        "reply": "Sorry, I couldn't find a hockey jersey in our catalogue. We do have other hockey items, and these are in stock in medium:\n\n- Yale Sports Hoodie Hockey: $68, in heather gray or navy blue\n- Yale Sports Crewneck Field Hockey: $58, in heather gray or navy blue\n- Yale Sports T-Shirt Field Hockey: $32, in heather gray or navy blue\n\nThe Ice Hockey Left Chest Hoodie ($68) and the Tri Blend Sports Hockey T-Shirt ($32) aren't available in medium right now. I haven't checked exact unit counts, so I can do that for any of these if you'd like.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-t-shirt-field-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "tri-blend-sports-hockey-t-shirt",
+          "ice-hockey-left-chest-hoodie"
+        ]
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.011648,
+        "secs": 4.7,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 16204,
+          "cache_write_tokens": 1551,
+          "output_tokens": 451,
+          "est_cost_usd": 0.011648
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most left in XL, with 25 available. It's $68 and comes in heather gray.\n\nIf you want other options, the District Vit Hoodie Vintage Bulldog has 15 in XL at $68. The Yale Sports Hoodie Tennis has 12 in XL and is only $45.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving"
+        ]
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.009601,
+        "secs": 4.2,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11313,
+          "cache_write_tokens": 1273,
+          "output_tokens": 414,
+          "est_cost_usd": 0.009601
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'district-tri-blend-t-shirt-vintage-shield', '2025-yale-vs-harvard-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt'])"
+        ],
+        "reply": "Yes, we have 19 navy tees under $40. Here are six of them, all $32:\n\n- Boola Boola T Shirt\n- District Tri Blend T Shirt Vintage Shield\n- 2025 Yale Vs Harvard T Shirt\n- Football Left Chest T Shirt\n- School Of Management Crest T Shirt\n- School Of Nursing Crest T Shirt\n\nSizes vary by style. Tell me your size and I'll check which ones are in stock. Go Bulldogs!",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "district-tri-blend-t-shirt-vintage-shield",
+          "2025-yale-vs-harvard-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt"
+        ]
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:31:17",
+    "config": "claude-haiku-5-5 effort=default cache=on",
+    "label": "R2-haiku-b",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00376,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000209,
+        "secs": 5.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11018,
+          "cache_write_tokens": 0,
+          "output_tokens": 196,
+          "est_cost_usd": 0.000209
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with a front kangaroo pocket, drawstring hood, and large white YALE lettering across the chest. It also comes in white.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000314,
+        "secs": 3.0,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15138,
+          "cache_write_tokens": 338,
+          "output_tokens": 238,
+          "est_cost_usd": 0.000314
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck has a white YALE BASEBALL wordmark on the left chest. It comes in navy and white, and it's priced at $58.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000628,
+        "secs": 4.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 12,
+          "cache_read_tokens": 19514,
+          "cache_write_tokens": 1391,
+          "output_tokens": 516,
+          "est_cost_usd": 0.000628
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck', size_in_stock='XS')",
+          "search_products(keywords='baseball')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck', 'tri-blend-sports-baseball-t-shirt', 'yale-sports-hoodie-baseball'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in size XS. It's still available in S (15 left), M (only 5 left), L, and XXL. If you'd like an XS in a similar style, the Tri Blend Sports Baseball T Shirt ($32) comes in XS, and the Yale Sports Hoodie Baseball ($68) also has XS in stock.",
+        "product_ids": [
+          "baseball-left-chest-crewneck",
+          "tri-blend-sports-baseball-t-shirt",
+          "yale-sports-hoodie-baseball"
+        ]
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000416,
+        "secs": 3.5,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15007,
+          "cache_write_tokens": 824,
+          "output_tokens": 324,
+          "est_cost_usd": 0.000416
+        },
+        "tool_calls": [
+          "search_products(keywords='2025 Yale vs Harvard', category='T-Shirts')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums left of the 2025 Yale Vs Harvard T Shirt, priced at $32. Size L is running low with only 2 left.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ]
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000217,
+        "secs": 2.4,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11434,
+          "cache_write_tokens": 0,
+          "output_tokens": 203,
+          "est_cost_usd": 0.000217
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left in XL. It's $68 if you'd like to grab a pair.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000748,
+        "secs": 6.8,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 14,
+          "cache_read_tokens": 20740,
+          "cache_write_tokens": 530,
+          "output_tokens": 946,
+          "est_cost_usd": 0.000748
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-creqneck-field-hockey', 'ice-hockey-left-chest-hoodie'])"
+        ],
+        "reply": "My last message was incomplete, so here is the full answer. We don't carry a Yale hockey jersey in the online catalogue. The closest options are:\n\n- Yale Sports Hoodie Hockey, $68, in heather gray or navy blue. Medium is in stock.\n- Yale Sports Crewneck Field Hockey, $58, in heather gray or navy blue. Medium is in stock.\n- Ice Hockey Left Chest Hoodie, $68, in navy blue or white. It is not listed in medium right now; it's available in XS, S, and XXL.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "ice-hockey-left-chest-hoodie"
+        ]
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.000557,
+        "secs": 5.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 17055,
+          "cache_write_tokens": 469,
+          "output_tokens": 654,
+          "est_cost_usd": 0.000557
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-hoodie-diving'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most in XL, with 25 units left. It's $68 and comes in heather gray and navy blue. The Yale Sports Hoodie Diving is next, at $68 with 12 in XL.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-hoodie-diving"
+        ]
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000673,
+        "secs": 5.6,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 17197,
+          "cache_write_tokens": 794,
+          "output_tokens": 801,
+          "est_cost_usd": 0.000673
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'district-tri-blend-t-shirt-vintage-shield', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', '2025-yale-vs-harvard-t-shirt', 'school-of-nursing-crest-t-shirt'])"
+        ],
+        "reply": "My last reply was complete: six navy tees under $40, all $32. If you tell me your size, I can check which of them are in stock in that size.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "district-tri-blend-t-shirt-vintage-shield",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "2025-yale-vs-harvard-t-shirt",
+          "school-of-nursing-crest-t-shirt"
+        ]
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:31:56",
+    "config": "claude-haiku-5-5 effort=default cache=on",
+    "label": "R2-haiku-c",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00354,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000208,
+        "secs": 5.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11018,
+          "cache_write_tokens": 0,
+          "output_tokens": 195,
+          "est_cost_usd": 0.000208
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a pullover hoodie in navy blue or white, with a front kangaroo pocket, drawstring hood, and large white YALE lettering across the chest.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000275,
+        "secs": 3.0,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15476,
+          "cache_write_tokens": 0,
+          "output_tokens": 238,
+          "est_cost_usd": 0.000275
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck has a white YALE BASEBALL wordmark on the left chest. It comes in navy and white, and it's priced at $58.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000471,
+        "secs": 4.4,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 12,
+          "cache_read_tokens": 19394,
+          "cache_write_tokens": 593,
+          "output_tokens": 403,
+          "est_cost_usd": 0.000471
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck', size_in_stock='XS')",
+          "search_products(keywords='baseball crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in size XS. It's available in S (15 left), M (only 5 left), L, and XXL. It comes in navy and white for $58.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000422,
+        "secs": 3.5,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14995,
+          "cache_write_tokens": 818,
+          "output_tokens": 337,
+          "est_cost_usd": 0.000422
+        },
+        "tool_calls": [
+          "search_products(keywords='2025 Yale vs Harvard T-shirt', size_in_stock='M')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums left of the 2025 Yale Vs Harvard T Shirt ($32). It also comes in heather gray, white, red, and navy blue, and if you want a size L, only 2 are left.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ]
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000219,
+        "secs": 2.5,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11434,
+          "cache_write_tokens": 0,
+          "output_tokens": 207,
+          "est_cost_usd": 0.000219
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68 and also comes in XS, S, M, L, and XXL.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000842,
+        "secs": 7.5,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 14,
+          "cache_read_tokens": 20962,
+          "cache_write_tokens": 752,
+          "output_tokens": 1074,
+          "est_cost_usd": 0.000842
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-creqneck-field-hockey', 'yale-sports-t-shirt-field-hockey'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in the Campus Customs online catalogue, so we don't carry one. Three hockey-themed pieces are listed in medium in our search results: the Yale Sports Hoodie Hockey ($68), the Yale Sports Creqneck Field Hockey ($58), and the Yale Sports T Shirt Field Hockey ($32). I can check the exact medium count for any of them if you'd like.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "yale-sports-t-shirt-field-hockey"
+        ]
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.00051,
+        "secs": 4.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 17179,
+          "cache_write_tokens": 698,
+          "output_tokens": 500,
+          "est_cost_usd": 0.00051
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most XL stock of the grey hoodies at or under $70: 25 available in XL. It's $68 and comes in heather gray and navy blue.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey"
+        ]
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000595,
+        "secs": 5.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 17031,
+          "cache_write_tokens": 628,
+          "output_tokens": 689,
+          "est_cost_usd": 0.000595
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'district-tri-blend-t-shirt-vintage-shield', 'school-of-management-crest-t-shirt', '2025-yale-vs-harvard-t-shirt', 'football-left-chest-t-shirt', 'school-of-nursing-crest-t-shirt'])"
+        ],
+        "reply": "Sorry about that. My last reply was the shop's answer: yes, we have navy tees under $40, most at $32. I showed six of the 19 matches above. Tell me a size (XS to XXL) and I'll check stock for any of them, or I can narrow the results by style or price.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "district-tri-blend-t-shirt-vintage-shield",
+          "school-of-management-crest-t-shirt",
+          "2025-yale-vs-harvard-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-nursing-crest-t-shirt"
+        ]
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:32:35",
+    "config": "claude-haiku-5-5 effort=low cache=on",
+    "label": "R2-haiku-low-b",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.0036,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000209,
+        "secs": 5.6,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11018,
+          "cache_write_tokens": 0,
+          "output_tokens": 196,
+          "est_cost_usd": 0.000209
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with a front kangaroo pocket, drawstring hood, and large white YALE lettering across the chest. It also comes in white.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000276,
+        "secs": 3.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15476,
+          "cache_write_tokens": 0,
+          "output_tokens": 240,
+          "est_cost_usd": 0.000276
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck has a white \"YALE BASEBALL\" wordmark on the left chest. It comes in navy and white, and it's priced at $58.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000374,
+        "secs": 4.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 12,
+          "cache_read_tokens": 19891,
+          "cache_write_tokens": 0,
+          "output_tokens": 347,
+          "est_cost_usd": 0.000374
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck', size_in_stock='XS')",
+          "search_products(keywords='baseball crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in XS. It's available in S, M (only 5 left), L, and XXL, in navy or white at $58.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000396,
+        "secs": 3.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14941,
+          "cache_write_tokens": 791,
+          "output_tokens": 293,
+          "est_cost_usd": 0.000396
+        },
+        "tool_calls": [
+          "search_products(keywords='Yale vs Harvard', category='T-Shirts')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums left of the 2025 Yale vs Harvard T-Shirt, priced at $32. If you want a size L, there are only 2 left.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ]
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000215,
+        "secs": 2.4,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11434,
+          "cache_write_tokens": 0,
+          "output_tokens": 200,
+          "est_cost_usd": 0.000215
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68 if you'd like to grab it soon.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000918,
+        "secs": 7.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 5,
+          "tool_calls": 3,
+          "input_tokens": 14,
+          "cache_read_tokens": 19907,
+          "cache_write_tokens": 1359,
+          "output_tokens": 1096,
+          "est_cost_usd": 0.000918
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-creqneck-field-hockey', 'yale-sports-t-shirt-field-hockey'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in the Campus Customs catalogue, so I can't give you its price or confirm a medium. The closest hockey-themed items are the Yale Sports Hoodie Hockey ($68), the Yale Sports Creqneck Field Hockey ($58), and the Yale Sports T Shirt Field Hockey ($32), all in navy or heather gray.\n\nI also need to correct my last message: I said medium was in stock for those three, but I was going off the general search listing rather than a size-specific stock check. If you tell me which one you're considering, I can check medium availability for it directly.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "yale-sports-t-shirt-field-hockey"
+        ]
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.00058,
+        "secs": 5.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 17089,
+          "cache_write_tokens": 503,
+          "output_tokens": 691,
+          "est_cost_usd": 0.00058
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey ($68, heather gray) has the most in XL, with 25 units in stock. The District Vit Hoodie Vintage Bulldog ($68, dark heather gray) is next, with 15 in XL. I've also shown both as cards on the page. Would you like me to check stock in another size?",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog"
+        ]
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000633,
+        "secs": 5.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 17177,
+          "cache_write_tokens": 774,
+          "output_tokens": 727,
+          "est_cost_usd": 0.000633
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'district-tri-blend-t-shirt-vintage-shield', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', '2025-yale-vs-harvard-t-shirt', 'school-of-nursing-crest-t-shirt'])"
+        ],
+        "reply": "Sorry about that. My last reply was complete: we have 19 navy T-shirts under $40, and I listed six of them, all $32. Those six are also shown as cards above. If you tell me your size, I can check which of them are in stock.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "district-tri-blend-t-shirt-vintage-shield",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "2025-yale-vs-harvard-t-shirt",
+          "school-of-nursing-crest-t-shirt"
+        ]
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:33:13",
+    "config": "claude-haiku-5-5 effort=low cache=on",
+    "label": "R2-haiku-low-c",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00349,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000209,
+        "secs": 5.6,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11018,
+          "cache_write_tokens": 0,
+          "output_tokens": 196,
+          "est_cost_usd": 0.000209
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with a front kangaroo pocket, drawstring hood, and large white YALE lettering across the chest. It also comes in white.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.00029,
+        "secs": 3.4,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15476,
+          "cache_write_tokens": 0,
+          "output_tokens": 268,
+          "est_cost_usd": 0.00029
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck has a white \"YALE BASEBALL\" wordmark on the left chest. It comes in navy and white, priced at $58. It's a long-sleeve crewneck with ribbed collar, cuffs, and waistband.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000376,
+        "secs": 4.0,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 12,
+          "cache_read_tokens": 19891,
+          "cache_write_tokens": 0,
+          "output_tokens": 351,
+          "est_cost_usd": 0.000376
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck', size_in_stock='XS')",
+          "search_products(keywords='baseball crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in XS. It's available in S (15 left), M (only 5 left), L, and XXL, in navy or white at $58.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ]
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000394,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14905,
+          "cache_write_tokens": 773,
+          "output_tokens": 294,
+          "est_cost_usd": 0.000394
+        },
+        "tool_calls": [
+          "search_products(keywords='Yale vs Harvard T-shirt 2025')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums left of the 2025 Yale Vs Harvard T Shirt, priced at $32. It also comes in XS, S, XL, and XXL, and only 2 are left in L if you're going larger.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ]
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000215,
+        "secs": 2.5,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11434,
+          "cache_write_tokens": 0,
+          "output_tokens": 200,
+          "est_cost_usd": 0.000215
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68 if you'd like to grab it soon.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ]
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000935,
+        "secs": 7.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 6,
+          "tool_calls": 5,
+          "input_tokens": 16,
+          "cache_read_tokens": 26222,
+          "cache_write_tokens": 1049,
+          "output_tokens": 1081,
+          "est_cost_usd": 0.000935
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='M')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'ice-hockey-left-chest-hoodie', 'yale-sports-creqneck-field-hockey'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in the Campus Customs online catalogue, so we don't carry one right now.\n\nThe closest match is the Yale Sports Hoodie Hockey at $68, in heather gray or navy blue. Size M is low, with only 5 left.\n\nThe Yale Sports Crewneck Field Hockey ($58) and the Ice Hockey Left Chest Hoodie ($68) are also hockey-themed options. I've shown all three above.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "ice-hockey-left-chest-hoodie",
+          "yale-sports-creqneck-field-hockey"
+        ]
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.000627,
+        "secs": 5.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 17199,
+          "cache_write_tokens": 613,
+          "output_tokens": 755,
+          "est_cost_usd": 0.000627
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most XL stock of the gray hoodies under $70: 25 units at $68. It comes in heather gray and navy blue.\n\nThe next two are the District Vit Hoodie Vintage Bulldog ($68, dark heather gray) with 15 in XL, and the Yale Sports Hoodie Diving ($68, heather gray) with 12 in XL.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving"
+        ]
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000442,
+        "secs": 3.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 12123,
+          "cache_write_tokens": 479,
+          "output_tokens": 521,
+          "est_cost_usd": 0.000442
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'district-tri-blend-t-shirt-vintage-shield', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt'])"
+        ],
+        "reply": "Yes, we have 19 navy-friendly tees under $40, and the ones shown are all $32. Some options:\n\n- Boola Boola T Shirt: navy, white, or gray\n- District Tri Blend T Shirt Vintage Shield: heather gray, navy, or white\n- Football Left Chest T Shirt: navy or white\n- School Of Management Crest T Shirt: navy, white, or light blue\n\nTell me your size and I can check which of these are in stock.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "district-tri-blend-t-shirt-vintage-shield",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt"
+        ]
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:35:26",
+    "config": "claude-sonnet-5-5 effort=default cache=on",
+    "label": "R3-sonnet-a",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.07833,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.013416,
+        "secs": 6.6,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 7401,
+          "cache_write_tokens": 3928,
+          "output_tokens": 210,
+          "est_cost_usd": 0.013416
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with a kangaroo pocket, a drawstring hood, and large white YALE lettering across the chest. I can check whether your size is in stock if you tell me which one you need.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.007878,
+        "secs": 4.0,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14989,
+          "cache_write_tokens": 672,
+          "output_tokens": 318,
+          "est_cost_usd": 0.007878
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest', category='Crewnecks')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is a navy sweatshirt with a white YALE BASEBALL wordmark on the left chest. It has a ribbed collar, cuffs, and waistband. It's one colorway, navy with white lettering, and it costs $58. Sizes S, M, L, and XXL are in stock right now.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.008443,
+        "secs": 4.2,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15167,
+          "cache_write_tokens": 864,
+          "output_tokens": 323,
+          "est_cost_usd": 0.008443
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest', category='Crewnecks')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck ($58) is sold out in size XS. It's still in stock in S (15 available), M (only 5 left), L (25 available) and XXL (25 available). If you'd like, I can look for similar navy crewnecks that come in XS.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.008339,
+        "secs": 4.1,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15235,
+          "cache_write_tokens": 909,
+          "output_tokens": 300,
+          "est_cost_usd": 0.008339
+        },
+        "tool_calls": [
+          "search_products(keywords='Harvard 2025', category='T-Shirts')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "There are 20 available in size M of the 2025 Yale Vs Harvard T-shirt. It's $32 and comes in heather gray. If you're thinking about L, only 2 are left.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ],
+        "problems": []
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.005969,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11104,
+          "cache_write_tokens": 621,
+          "output_tokens": 218,
+          "est_cost_usd": 0.005969
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale ($68) is available in XL, but only 2 are left. If you want one, order soon. XXL is also available if you'd like a roomier fit, with 25 in stock.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.01208,
+        "secs": 5.5,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 4,
+          "input_tokens": 10,
+          "cache_read_tokens": 15339,
+          "cache_write_tokens": 1429,
+          "output_tokens": 542,
+          "est_cost_usd": 0.01208
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-t-shirt-field-hockey', 'yale-sports-creqneck-field-hockey', 'tri-blend-sports-hockey-t-shirt'])"
+        ],
+        "reply": "Sorry, I couldn't find a Yale hockey jersey in our online catalogue. We do have some hockey-themed pieces, and these are in stock in medium:\n\n- Yale Sports Hoodie Hockey, $68, a heather gray hoodie with navy blue\n- Yale Sports Creqneck Field Hockey, $58, a heather gray crewneck\n- Yale Sports T Shirt Field Hockey, $32, a heather gray tee\n\nThe Tri Blend Sports Hockey T Shirt ($32) and the Ice Hockey Left Chest Hoodie ($68) aren't available in medium.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-t-shirt-field-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "tri-blend-sports-hockey-t-shirt"
+        ],
+        "problems": []
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.012919,
+        "secs": 5.4,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 16621,
+          "cache_write_tokens": 1742,
+          "output_tokens": 522,
+          "est_cost_usd": 0.012919
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most left in XL, with 25 available. It's a heather gray hoodie with navy blue accents and costs $68.\n\nNext in XL are the District Vit Hoodie Vintage Bulldog (dark heather gray, $68) with 15 left and the Yale Sports Hoodie Diving ($68) with 12 left. The Yale Sports Hoodie Tennis is also gray and has 12 left in XL. It costs only $45 if you want to spend less.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving"
+        ],
+        "problems": []
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.009286,
+        "secs": 4.0,
+        "usage": {
+          "model": "claude-sonnet-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11385,
+          "cache_write_tokens": 1153,
+          "output_tokens": 411,
+          "est_cost_usd": 0.009286
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt', 'track-field-left-chest-t-shirt'])"
+        ],
+        "reply": "Yes, we have five navy tees, and each one is $32:\n\n- Boola Boola T Shirt: in stock in XS, S, M, XL, XXL\n- Football Left Chest T Shirt: in stock in S, L, XXL\n- School Of Management Crest T Shirt: in stock in XS, S, M, L, XXL\n- School Of Nursing Crest T Shirt: in stock in S, M, L\n- Track Field Left Chest T Shirt: in stock in XS, M, L, XL\n\nTell me your size and I can check exact counts. Bulldog pride!",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt",
+          "track-field-left-chest-t-shirt"
+        ],
+        "problems": []
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:35:58",
+    "config": "claude-haiku-5-5 effort=default cache=on",
+    "label": "R3-haiku-a",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.0041,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000661,
+        "secs": 5.6,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 7401,
+          "cache_write_tokens": 3928,
+          "output_tokens": 190,
+          "est_cost_usd": 0.000661
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with a front kangaroo pocket, a drawstring hood, and large white YALE lettering across the chest.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000377,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 14945,
+          "cache_write_tokens": 650,
+          "output_tokens": 290,
+          "est_cost_usd": 0.000377
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is a navy long-sleeve crewneck sweatshirt with ribbed collar, cuffs, and waistband. It has a white \"YALE BASEBALL\" wordmark on the left chest. It's $58, and it's sold as a navy sweatshirt with white lettering.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.0005,
+        "secs": 3.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 12,
+          "cache_read_tokens": 19144,
+          "cache_write_tokens": 983,
+          "output_tokens": 369,
+          "est_cost_usd": 0.0005
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck', size_in_stock='XS')",
+          "search_products(keywords='baseball left chest')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in size XS. It's available in S, M (only 5 left), L, and XXL, and it's $58 in navy with white lettering.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000416,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15235,
+          "cache_write_tokens": 909,
+          "output_tokens": 298,
+          "est_cost_usd": 0.000416
+        },
+        "tool_calls": [
+          "search_products(keywords='Yale vs Harvard 2025 tee')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums left of the 2025 Yale Vs Harvard T Shirt, priced at $32. If you'd prefer a different size, L is running low with only 2 left.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ],
+        "problems": []
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000283,
+        "secs": 2.0,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11104,
+          "cache_write_tokens": 621,
+          "output_tokens": 188,
+          "est_cost_usd": 0.000283
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000709,
+        "secs": 5.0,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 4,
+          "input_tokens": 10,
+          "cache_read_tokens": 15339,
+          "cache_write_tokens": 1595,
+          "output_tokens": 710,
+          "est_cost_usd": 0.000709
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-creqneck-field-hockey', 'yale-sports-t-shirt-field-hockey', 'ice-hockey-left-chest-hoodie'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in the Campus Customs online catalogue, so I can't give you a price or medium stock for one. We do have some hockey-themed pieces:\n\n- Yale Sports Hoodie Hockey, $68, heather gray with navy blue, and medium is in stock.\n- Yale Sports Crewneck Field Hockey, $58, heather gray with navy blue, and medium is in stock.\n- Yale Sports T Shirt Field Hockey, $32, heather gray with navy blue, and medium is in stock.\n\nI can check exact medium counts on any of these if you'd like.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "yale-sports-t-shirt-field-hockey",
+          "ice-hockey-left-chest-hoodie"
+        ],
+        "problems": []
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.000652,
+        "secs": 3.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 3,
+          "input_tokens": 8,
+          "cache_read_tokens": 11646,
+          "cache_write_tokens": 1926,
+          "output_tokens": 588,
+          "est_cost_usd": 0.000652
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most left in XL, with 25 available. It's a $68 heather gray hoodie with navy blue as its other color. The District Vit Hoodie Vintage Bulldog ($68, dark heather gray) is next with 15 in XL.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving"
+        ],
+        "problems": []
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000502,
+        "secs": 3.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11385,
+          "cache_write_tokens": 1153,
+          "output_tokens": 486,
+          "est_cost_usd": 0.000502
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt', 'track-field-left-chest-t-shirt'])"
+        ],
+        "reply": "Yes! We have five navy T-shirts under $40, all priced at $32:\n\n- **Boola Boola T Shirt** (navy with white and gray details), sizes XS, S, M, XL, XXL in stock\n- **Football Left Chest T Shirt** (navy with white lettering), sizes S, L, XXL in stock\n- **School of Management Crest T Shirt** (navy with white and light blue), sizes XS, S, M, L, XXL in stock\n- **School of Nursing Crest T Shirt** (navy blue with white, black, royal blue, and gold), sizes S, M, L in stock\n- **Track Field Left Chest T Shirt** (navy blue with white), sizes XS, M, L, XL in stock\n\nLet me know which one you like and what size you need, and I can check exact stock.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt",
+          "track-field-left-chest-t-shirt"
+        ],
+        "problems": []
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:36:32",
+    "config": "claude-haiku-5-5 effort=low cache=on",
+    "label": "R3-haiku-low-a",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00372,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000247,
+        "secs": 5.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11004,
+          "cache_write_tokens": 325,
+          "output_tokens": 192,
+          "est_cost_usd": 0.000247
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy blue pullover hoodie with large white YALE lettering across the chest, a front kangaroo pocket, and a drawstring hood.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000359,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15057,
+          "cache_write_tokens": 538,
+          "output_tokens": 281,
+          "est_cost_usd": 0.000359
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is a navy crewneck sweatshirt with a white \"YALE BASEBALL\" wordmark on the left chest. It's priced at $58, and it has ribbed collar, cuffs, and waistband. It comes in navy, with the white lettering.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000495,
+        "secs": 3.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 12,
+          "cache_read_tokens": 19451,
+          "cache_write_tokens": 979,
+          "output_tokens": 353,
+          "est_cost_usd": 0.000495
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck', size_in_stock='XS')",
+          "search_products(keywords='baseball crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in XS. It's available in S, M (only 5 left), L, and XXL, and it's $58 in navy with white lettering.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000403,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15349,
+          "cache_write_tokens": 801,
+          "output_tokens": 297,
+          "est_cost_usd": 0.000403
+        },
+        "tool_calls": [
+          "search_products(keywords='Yale vs Harvard', category='T-Shirts')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums left of the 2025 Yale Vs Harvard T Shirt, priced at $32. Sizes L is the only one running low, with just 2 left.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ],
+        "problems": []
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000272,
+        "secs": 2.4,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11208,
+          "cache_write_tokens": 517,
+          "output_tokens": 188,
+          "est_cost_usd": 0.000272
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000753,
+        "secs": 5.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 4,
+          "input_tokens": 10,
+          "cache_read_tokens": 15444,
+          "cache_write_tokens": 1510,
+          "output_tokens": 817,
+          "est_cost_usd": 0.000753
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['ice-hockey-left-chest-hoodie', 'yale-sports-hoodie-hockey', 'yale-sports-creqneck-field-hockey'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in the Campus Customs online catalogue, so I can't give you a price or medium stock for one. The closest hockey-themed items are:\n\n- **Ice Hockey Left Chest Hoodie**, $68, navy blue with white lettering. Sizes XS, S, and XXL are in stock.\n- **Yale Sports Hoodie Hockey**, $68, heather gray with navy lettering. Sizes S, M, L, XL, and XXL are in stock.\n- **Yale Sports Crewneck Field Hockey**, $58, heather gray with navy lettering. Sizes S, M, XL, and XXL are in stock.\n\nWant me to check any of these in a specific size?",
+        "product_ids": [
+          "ice-hockey-left-chest-hoodie",
+          "yale-sports-hoodie-hockey",
+          "yale-sports-creqneck-field-hockey"
+        ],
+        "problems": []
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.000702,
+        "secs": 4.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 16802,
+          "cache_write_tokens": 1458,
+          "output_tokens": 701,
+          "est_cost_usd": 0.000702
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-hoodie-diving', 'yale-sports-hoodie-soccer'])"
+        ],
+        "reply": "The **Yale Sports Hoodie Hockey** has the most in XL, with **25 units** in stock. It's $68 in heather gray with navy trim.\n\nOther options under $70 with XL in stock:\n- Yale Sports Hoodie Diving: 12 in XL, $68\n- Yale Sports Hoodie Soccer: 8 in XL, $68",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-hoodie-diving",
+          "yale-sports-hoodie-soccer"
+        ],
+        "problems": []
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000491,
+        "secs": 3.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "low",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11480,
+          "cache_write_tokens": 1058,
+          "output_tokens": 486,
+          "est_cost_usd": 0.000491
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt', 'track-field-left-chest-t-shirt'])"
+        ],
+        "reply": "Yes! We have five navy tees under $40, all priced at $32:\n\n- **Boola Boola T Shirt**: navy with white and gray lettering (sizes XS, S, M, XL, XXL in stock)\n- **Football Left Chest T Shirt**: navy with white design (sizes S, L, XXL in stock)\n- **School of Management Crest T Shirt**: navy with white and light blue details (sizes XS, S, M, L, XXL in stock)\n- **School of Nursing Crest T Shirt**: navy blue with white, black, royal blue, and gold details (sizes S, M, L in stock)\n- **Track & Field Left Chest T Shirt**: navy blue with white design (sizes XS, M, L, XL in stock)\n\nLet me know if you'd like me to check a specific size.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt",
+          "track-field-left-chest-t-shirt"
+        ],
+        "problems": []
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:37:12",
+    "config": "claude-haiku-5-5 effort=default cache=on",
+    "label": "R3-haiku-b",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00332,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000214,
+        "secs": 5.5,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11329,
+          "cache_write_tokens": 0,
+          "output_tokens": 200,
+          "est_cost_usd": 0.000214
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with a front kangaroo pocket, drawstring hood, and large white YALE lettering across the chest. Would you like me to check sizes?",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000395,
+        "secs": 3.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15163,
+          "cache_write_tokens": 591,
+          "output_tokens": 336,
+          "est_cost_usd": 0.000395
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is a navy crewneck sweatshirt with a white \"YALE BASEBALL\" wordmark on the left chest. It's priced at $58, and its main color is navy, with white as the only other color in the design. It's in stock in S, M, L, and XXL.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000504,
+        "secs": 4.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 12,
+          "cache_read_tokens": 19618,
+          "cache_write_tokens": 884,
+          "output_tokens": 392,
+          "est_cost_usd": 0.000504
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck', size_in_stock='XS')",
+          "search_products(keywords='baseball crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in XS. It's available in S (15 left), M (only 5 left), L, and XXL. It's $58 in navy with white lettering.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000424,
+        "secs": 3.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15411,
+          "cache_write_tokens": 832,
+          "output_tokens": 330,
+          "est_cost_usd": 0.000424
+        },
+        "tool_calls": [
+          "search_products(keywords='2025 Yale vs Harvard', category='T-Shirts')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums left of the 2025 Yale vs Harvard T-shirt, priced at $32. It's also in stock in every other size, with only the large running low (2 left).",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ],
+        "problems": []
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000218,
+        "secs": 1.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11725,
+          "cache_write_tokens": 0,
+          "output_tokens": 200,
+          "est_cost_usd": 0.000218
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68 if you'd like to grab a pair.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.00061,
+        "secs": 5.0,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 5,
+          "tool_calls": 5,
+          "input_tokens": 12,
+          "cache_read_tokens": 21402,
+          "cache_write_tokens": 802,
+          "output_tokens": 590,
+          "est_cost_usd": 0.00061
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "search_products(keywords='hockey', size_in_stock='M')",
+          "show_products(product_ids=['yale-sports-t-shirt-field-hockey', 'yale-sports-creqneck-field-hockey', 'yale-sports-hoodie-hockey'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in the Campus Customs online catalogue, so I can't quote a price or medium availability for one.\n\nHere are the closest hockey-themed items that do come in medium:\n- Yale Sports T Shirt Field Hockey, $32, heather gray with navy blue lettering: 25 available in M\n- Yale Sports Crewneck Field Hockey, $58, heather gray with navy blue lettering: 15 available in M\n- Yale Sports Hoodie Hockey, $68, heather gray with navy blue lettering: 5 available in M (low stock)",
+        "product_ids": [
+          "yale-sports-t-shirt-field-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "yale-sports-hoodie-hockey"
+        ],
+        "problems": []
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.000587,
+        "secs": 4.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 17823,
+          "cache_write_tokens": 896,
+          "output_tokens": 592,
+          "est_cost_usd": 0.000587
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most left in XL, with 25 available. It's a $68 heather gray hoodie with navy blue as the other color in the design.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving"
+        ],
+        "problems": []
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000369,
+        "secs": 3.4,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 12538,
+          "cache_write_tokens": 0,
+          "output_tokens": 486,
+          "est_cost_usd": 0.000369
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt', 'track-field-left-chest-t-shirt'])"
+        ],
+        "reply": "Yes! We have five navy tees under $40, all priced at $32:\n\n- **Boola Boola T Shirt**: navy with white and gray lettering (sizes XS, S, M, XL, XXL in stock)\n- **Football Left Chest T Shirt**: navy with white accents (sizes S, L, XXL in stock)\n- **School of Management Crest T Shirt**: navy with white and light blue (sizes XS, S, M, L, XXL in stock)\n- **School of Nursing Crest T Shirt**: navy blue with white, black, royal blue, and gold (sizes S, M, L in stock)\n- **Track Field Left Chest T Shirt**: navy blue with white (sizes XS, M, L, XL in stock)\n\nLet me know if you'd like me to check stock in a particular size.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt",
+          "track-field-left-chest-t-shirt"
+        ],
+        "problems": []
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:37:49",
+    "config": "claude-haiku-5-5 effort=default cache=on",
+    "label": "R3-haiku-c",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00326,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.00021,
+        "secs": 6.5,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11329,
+          "cache_write_tokens": 0,
+          "output_tokens": 192,
+          "est_cost_usd": 0.00021
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy blue pullover hoodie with large white YALE lettering across the chest, a front kangaroo pocket, and a drawstring hood.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000302,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15595,
+          "cache_write_tokens": 0,
+          "output_tokens": 290,
+          "est_cost_usd": 0.000302
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck')",
+          "get_product_info(product='baseball-left-chest-crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is a navy crewneck sweatshirt with a white \"YALE BASEBALL\" wordmark on the left chest. It has ribbed collar, cuffs, and waistband, and it's priced at $58.\n\nIt's a navy garment with white lettering, so navy is the only main color.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000477,
+        "secs": 4.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 12,
+          "cache_read_tokens": 19929,
+          "cache_write_tokens": 589,
+          "output_tokens": 406,
+          "est_cost_usd": 0.000477
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck', size_in_stock='XS')",
+          "search_products(keywords='baseball crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in size XS. It's in stock in S (15 left), M (only 5 left), L, and XXL. It's $58 and comes in navy with white lettering.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000411,
+        "secs": 3.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 15381,
+          "cache_write_tokens": 817,
+          "output_tokens": 308,
+          "est_cost_usd": 0.000411
+        },
+        "tool_calls": [
+          "search_products(keywords='Yale vs Harvard', category='T-Shirts')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums available in the 2025 Yale vs Harvard T-Shirt, which is $32. If you want a size L, there are only 2 left.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ],
+        "problems": []
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000226,
+        "secs": 2.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 11725,
+          "cache_write_tokens": 0,
+          "output_tokens": 216,
+          "est_cost_usd": 0.000226
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left in XL. It's $68, and XXL is well stocked with 25 units if you'd like a little extra room.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000623,
+        "secs": 5.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 4,
+          "input_tokens": 10,
+          "cache_read_tokens": 16356,
+          "cache_write_tokens": 600,
+          "output_tokens": 766,
+          "est_cost_usd": 0.000623
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['ice-hockey-left-chest-hoodie', 'yale-sports-hoodie-hockey', 'yale-sports-creqneck-field-hockey'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in the Campus Customs online catalogue, so I can't give you a price or medium availability for one. The closest hockey-themed items we carry are:\n\n- **Ice Hockey Left Chest Hoodie** ($68, navy with white lettering)\n- **Yale Sports Hoodie Hockey** ($68, heather gray with navy details)\n- **Yale Sports Crewneck Field Hockey** ($58, heather gray with navy details)\n\nIf you tell me which of these you're interested in, I can check medium availability for it.",
+        "product_ids": [
+          "ice-hockey-left-chest-hoodie",
+          "yale-sports-hoodie-hockey",
+          "yale-sports-creqneck-field-hockey"
+        ],
+        "problems": []
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.00065,
+        "secs": 5.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 17681,
+          "cache_write_tokens": 515,
+          "output_tokens": 816,
+          "est_cost_usd": 0.00065
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving'])"
+        ],
+        "reply": "The **Yale Sports Hoodie Hockey** has the most XL stock: **25 units** in heather gray, priced at $68. It has navy lettering.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving"
+        ],
+        "problems": []
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000363,
+        "secs": 3.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 12538,
+          "cache_write_tokens": 0,
+          "output_tokens": 473,
+          "est_cost_usd": 0.000363
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt', 'track-field-left-chest-t-shirt'])"
+        ],
+        "reply": "Yes! We have five navy tees under $40, all priced at $32:\n\n- **Boola Boola T Shirt**: navy with white and gray lettering (XS, S, M, XL, XXL in stock)\n- **Football Left Chest T Shirt**: navy with white design (S, L, XXL in stock)\n- **School of Management Crest T Shirt**: navy with white and light blue details (XS, S, M, L, XXL in stock)\n- **School of Nursing Crest T Shirt**: navy blue with white, black, royal blue, and gold details (S, M, L in stock)\n- **Track Field Left Chest T Shirt**: navy blue with white design (XS, M, L, XL in stock)\n\nIf you tell me your size, I can check exact stock counts for you.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt",
+          "track-field-left-chest-t-shirt"
+        ],
+        "problems": []
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T14:52:10",
+    "config": "claude-haiku-5-5 effort=default cache=on",
+    "label": "R4 regression after P7+P8",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00422,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.0003,
+        "secs": 5.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 13838,
+          "cache_write_tokens": 463,
+          "output_tokens": 205,
+          "est_cost_usd": 0.0003
+        },
+        "tool_calls": [
+          "get_product_info(product='Basic Hoodie Big Yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with large white YALE lettering across the chest, a front kangaroo pocket, and a drawstring hood. I've put it on the page for you to take a look.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000311,
+        "secs": 2.6,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 13882,
+          "cache_write_tokens": 498,
+          "output_tokens": 219,
+          "est_cost_usd": 0.000311
+        },
+        "tool_calls": [
+          "get_product_info(product='Baseball Left Chest Crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is a navy crewneck sweatshirt with a white YALE BASEBALL wordmark on the left chest, plus ribbed collar, cuffs, and waistband. It's $58, and the product is shown on the page for you to check out.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000437,
+        "secs": 3.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 19046,
+          "cache_write_tokens": 879,
+          "output_tokens": 272,
+          "est_cost_usd": 0.000437
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in size XS. It's available in S, M (only 5 left), L, and XXL, and it's $58. It's shown on the page above.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.00046,
+        "secs": 3.5,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 19152,
+          "cache_write_tokens": 943,
+          "output_tokens": 300,
+          "est_cost_usd": 0.00046
+        },
+        "tool_calls": [
+          "search_products(keywords='2025 Yale vs Harvard')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums left of the 2025 Yale vs Harvard T-shirt, which is $32. It's also available in XS, S, XL, and XXL, and the card is shown on the page below.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ],
+        "problems": []
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000326,
+        "secs": 2.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 14037,
+          "cache_write_tokens": 658,
+          "output_tokens": 205,
+          "est_cost_usd": 0.000326
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but it's low stock with only 2 left. It's $68, and it's shown above if you'd like to take a look.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.001049,
+        "secs": 7.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 14,
+          "cache_read_tokens": 25667,
+          "cache_write_tokens": 1912,
+          "output_tokens": 1103,
+          "est_cost_usd": 0.001049
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-creqneck-field-hockey', 'yale-sports-t-shirt-field-hockey'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in the Campus Customs online catalogue, so I can't give you a price or medium availability for one. The closest hockey-themed pieces are a Yale Sports Hoodie Hockey ($68), a Yale Sports Crewneck Field Hockey ($58), and a Yale Sports T-Shirt Field Hockey ($32). I've put them on the page so you can check sizes.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "yale-sports-t-shirt-field-hockey"
+        ],
+        "problems": []
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.00084,
+        "secs": 4.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 20728,
+          "cache_write_tokens": 2175,
+          "output_tokens": 720,
+          "est_cost_usd": 0.00084
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving', 'yale-sports-hoodie-tennis', 'yale-sports-hoodie-soccer', 'district-vit-hoodie-vintage-sailor-bulldog'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most in XL, with 25 available. It's a heather gray hoodie with navy blue lettering, priced at $68.\n\nSeven gray hoodies under $70 have XL in stock, and I've shown the top matches on the page. The Yale Sports Hoodie Tennis is the least expensive at $45, with 12 in XL.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving",
+          "yale-sports-hoodie-tennis",
+          "yale-sports-hoodie-soccer",
+          "district-vit-hoodie-vintage-sailor-bulldog"
+        ],
+        "problems": []
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000494,
+        "secs": 3.0,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 14318,
+          "cache_write_tokens": 1190,
+          "output_tokens": 402,
+          "est_cost_usd": 0.000494
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt', 'track-field-left-chest-t-shirt'])"
+        ],
+        "reply": "Yes! We have 5 navy tees under $40, all priced at $32 and shown on the page:\n\n- Boola Boola T Shirt (navy with white and gray lettering)\n- Football Left Chest T Shirt (navy with white)\n- School of Management Crest T Shirt (navy with white and light blue)\n- School of Nursing Crest T Shirt (navy blue with white, black, royal blue, and gold)\n- Track Field Left Chest T Shirt (navy blue with white)\n\nLet me know if you'd like me to check sizes for any of them.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt",
+          "track-field-left-chest-t-shirt"
+        ],
+        "problems": []
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T15:08:12",
+    "config": "claude-haiku-5-5 effort=default cache=on",
+    "label": "R5 regression after P9 (bag tool + fact-checker)",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00426,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000322,
+        "secs": 5.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 15985,
+          "cache_write_tokens": 471,
+          "output_tokens": 204,
+          "est_cost_usd": 0.000322
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with large white YALE lettering across the chest, a front kangaroo pocket, and a drawstring hood. I've put it on the page for you to take a look.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000388,
+        "secs": 3.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 16030,
+          "cache_write_tokens": 593,
+          "output_tokens": 305,
+          "est_cost_usd": 0.000388
+        },
+        "tool_calls": [
+          "get_product_info(product='Baseball Left Chest Crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is a navy long-sleeve crewneck with a white YALE BASEBALL wordmark on the left chest. It has a ribbed collar, cuffs, and waistband. It's offered in navy with white lettering, and it's $58.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000635,
+        "secs": 4.4,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 5,
+          "tool_calls": 4,
+          "input_tokens": 12,
+          "cache_read_tokens": 27965,
+          "cache_write_tokens": 1170,
+          "output_tokens": 416,
+          "est_cost_usd": 0.000635
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck', size_in_stock='XS')",
+          "search_products(keywords='baseball crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in size XS. It's in stock in S (15 left), M (only 5 left), L, and XXL. It's a navy crewneck with white lettering, priced at $58, and it's shown on the page above.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000493,
+        "secs": 3.6,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 22023,
+          "cache_write_tokens": 954,
+          "output_tokens": 306,
+          "est_cost_usd": 0.000493
+        },
+        "tool_calls": [
+          "search_products(keywords='2025 Yale vs Harvard T-shirt')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "We have 20 mediums left of the 2025 Yale Vs Harvard T Shirt, which is $32. It's also available in XS, S, L, XL, and XXL. I've put the product card on the page for you.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ],
+        "problems": []
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000373,
+        "secs": 2.8,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 16185,
+          "cache_write_tokens": 709,
+          "output_tokens": 244,
+          "est_cost_usd": 0.000373
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68, and I've shown it above so you can take a look.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000741,
+        "secs": 4.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 4,
+          "input_tokens": 10,
+          "cache_read_tokens": 22189,
+          "cache_write_tokens": 1550,
+          "output_tokens": 648,
+          "est_cost_usd": 0.000741
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['ice-hockey-left-chest-hoodie', 'yale-sports-hoodie-hockey', 'yale-sports-creqneck-field-hockey', 'tri-blend-sports-hockey-t-shirt'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in the Campus Customs online catalogue, so I can't quote a price or medium availability for one.\n\nHere are the hockey-themed pieces we do carry, shown on the page:\n- Ice Hockey Left Chest Hoodie, $68 (sizes XS, S, and XXL in stock; no medium right now)\n- Yale Sports Hoodie Hockey, $68 (medium in stock)\n- Yale Sports Crewneck Field Hockey, $58 (medium in stock)\n- Tri Blend Sports Hockey T-Shirt, $32 (sizes S and XL in stock)\n\nIf you'd like, I can check the stock on any of these in a specific size.",
+        "product_ids": [
+          "ice-hockey-left-chest-hoodie",
+          "yale-sports-hoodie-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "tri-blend-sports-hockey-t-shirt"
+        ],
+        "problems": []
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.000793,
+        "secs": 5.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 23544,
+          "cache_write_tokens": 1921,
+          "output_tokens": 633,
+          "est_cost_usd": 0.000793
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most left in XL, with 25 available. It's a heather gray hoodie with navy blue design colors, priced at $68.\n\nOther gray hoodies under $70 with XL in stock include the District Vit Hoodie Vintage Bulldog ($68, 15 in XL) and the Yale Sports Hoodie Diving ($68, 12 in XL). The three are shown on the page above.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving"
+        ],
+        "problems": []
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.00052,
+        "secs": 3.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 16466,
+          "cache_write_tokens": 1199,
+          "output_tokens": 409,
+          "est_cost_usd": 0.00052
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt', 'track-field-left-chest-t-shirt'])"
+        ],
+        "reply": "Yes, we have 5 navy tees under $40, all priced at $32. They're shown on the page above:\n\n- Boola Boola T Shirt (navy with white and gray details)\n- Football Left Chest T Shirt (navy with white lettering)\n- School of Management Crest T Shirt (navy with white and light blue details)\n- School of Nursing Crest T Shirt (navy blue with white, black, royal blue, and gold details)\n- Track Field Left Chest T Shirt (navy blue with white lettering)\n\nTell me your size and I can check which of these have it in stock.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt",
+          "track-field-left-chest-t-shirt"
+        ],
+        "problems": []
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T18:46:35",
+    "config": "claude-haiku-5-5 effort=default cache=on",
+    "label": "R6 regression after P11 fact-check fix",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00441,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000322,
+        "secs": 5.8,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 15985,
+          "cache_write_tokens": 471,
+          "output_tokens": 204,
+          "est_cost_usd": 0.000322
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with large white YALE lettering across the chest, a front kangaroo pocket, and a drawstring hood. I've put it on the page for you to take a look.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000376,
+        "secs": 2.8,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 16030,
+          "cache_write_tokens": 578,
+          "output_tokens": 285,
+          "est_cost_usd": 0.000376
+        },
+        "tool_calls": [
+          "get_product_info(product='Baseball Left Chest Crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is a navy long-sleeve crewneck with a white YALE BASEBALL wordmark on the left chest, plus ribbed collar, cuffs, and waistband. It's $58, and it's shown on the page above.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000437,
+        "secs": 2.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 3,
+          "input_tokens": 8,
+          "cache_read_tokens": 16020,
+          "cache_write_tokens": 960,
+          "output_tokens": 312,
+          "est_cost_usd": 0.000437
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in size XS. It's available in S, M (only 5 left), L, and XXL, at $58. It's a navy crewneck with white lettering, and it's shown on the page for you.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000479,
+        "secs": 3.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 22011,
+          "cache_write_tokens": 948,
+          "output_tokens": 279,
+          "est_cost_usd": 0.000479
+        },
+        "tool_calls": [
+          "search_products(keywords='2025 Yale vs Harvard')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "There are 20 mediums left of the 2025 Yale Vs Harvard T-Shirt, priced at $32. It's shown on the page above.",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ],
+        "problems": []
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000348,
+        "secs": 2.4,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 16185,
+          "cache_write_tokens": 667,
+          "output_tokens": 203,
+          "est_cost_usd": 0.000348
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68 and is shown above if you'd like to take a look.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.001234,
+        "secs": 7.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 5,
+          "tool_calls": 7,
+          "input_tokens": 12,
+          "cache_read_tokens": 30001,
+          "cache_write_tokens": 3051,
+          "output_tokens": 1103,
+          "est_cost_usd": 0.001234
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='M')",
+          "check_stock(product='yale-sports-creqneck-field-hockey', size='M')",
+          "check_stock(product='yale-sports-t-shirt-field-hockey', size='M')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-creqneck-field-hockey', 'yale-sports-t-shirt-field-hockey', 'ice-hockey-left-chest-hoodie'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in the Campus Customs catalogue, so I can't give you a price for it. The closest hockey pieces I found, all with medium sizes available:\n\n- Yale Sports Hoodie Hockey, $68: heather gray. Only 5 left in M.\n- Yale Sports Crewneck Field Hockey, $58: heather gray. 15 available in M.\n- Yale Sports T-Shirt Field Hockey, $32: heather gray. 25 available in M.\n\nI've also put the Ice Hockey Left Chest Hoodie ($68, navy) on the page, though I didn't check its medium stock.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "yale-sports-t-shirt-field-hockey",
+          "ice-hockey-left-chest-hoodie"
+        ],
+        "problems": []
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.000696,
+        "secs": 4.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 16727,
+          "cache_write_tokens": 1782,
+          "output_tokens": 610,
+          "est_cost_usd": 0.000696
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving', 'yale-sports-hoodie-tennis', 'yale-sports-hoodie-soccer', 'district-vit-hoodie-vintage-sailor-bulldog'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most in XL, with 25 units available. It's heather gray with navy trim, priced at $68.\n\nFive other gray hoodies under $70 also have XL in stock, with the District Vit Hoodie Vintage Bulldog next at 15. The cards are on the page.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving",
+          "yale-sports-hoodie-tennis",
+          "yale-sports-hoodie-soccer",
+          "district-vit-hoodie-vintage-sailor-bulldog"
+        ],
+        "problems": []
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000517,
+        "secs": 3.0,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 16466,
+          "cache_write_tokens": 1199,
+          "output_tokens": 404,
+          "est_cost_usd": 0.000517
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt', 'track-field-left-chest-t-shirt'])"
+        ],
+        "reply": "Yes, we have 5 navy tees under $40, all priced at $32. They're shown on the page above:\n\n- Boola Boola T Shirt (navy with white and gray lettering)\n- Football Left Chest T Shirt (navy with white)\n- School of Management Crest T Shirt (navy with white and light blue)\n- School of Nursing Crest T Shirt (navy blue with white, black, royal blue, and gold)\n- Track & Field Left Chest T Shirt (navy blue with white)\n\nTell me your size and I can check which of these have it in stock.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt",
+          "track-field-left-chest-t-shirt"
+        ],
+        "problems": []
+      }
+    ]
+  },
+  {
+    "time": "2026-10-10T18:53:40",
+    "config": "claude-haiku-5-5 effort=default cache=on",
+    "label": "R7 regression after Handsome Dan persona + checkout rule",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00376,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000329,
+        "secs": 5.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 16747,
+          "cache_write_tokens": 471,
+          "output_tokens": 204,
+          "est_cost_usd": 0.000329
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with large white YALE lettering across the chest, a front kangaroo pocket, and a drawstring hood. I've put it on the page for you to take a look.",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.000378,
+        "secs": 2.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 16792,
+          "cache_write_tokens": 566,
+          "output_tokens": 277,
+          "est_cost_usd": 0.000378
+        },
+        "tool_calls": [
+          "get_product_info(product='Baseball Left Chest Crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is a navy long-sleeve crewneck with a white YALE BASEBALL wordmark on the left chest, plus a ribbed collar, cuffs, and waistband. It's $58, and it comes in this navy colorway only.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000443,
+        "secs": 3.1,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 3,
+          "input_tokens": 8,
+          "cache_read_tokens": 16782,
+          "cache_write_tokens": 960,
+          "output_tokens": 308,
+          "est_cost_usd": 0.000443
+        },
+        "tool_calls": [
+          "search_products(keywords='baseball left chest crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in size XS. It's still available in S (15 left), M (only 5 left), L, and XXL. It's a navy crewneck with white lettering, priced at $58.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.000497,
+        "secs": 3.2,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 23037,
+          "cache_write_tokens": 953,
+          "output_tokens": 294,
+          "est_cost_usd": 0.000497
+        },
+        "tool_calls": [
+          "search_products(keywords='2025 Yale vs Harvard')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')",
+          "show_products(product_ids=['2025-yale-vs-harvard-t-shirt'])"
+        ],
+        "reply": "There are 20 mediums left of the 2025 Yale vs Harvard T-shirt, priced at $32. It's shown on the page below. Bulldog pride! 🐾",
+        "product_ids": [
+          "2025-yale-vs-harvard-t-shirt"
+        ],
+        "problems": []
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000254,
+        "secs": 1.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 2,
+          "tool_calls": 1,
+          "input_tokens": 6,
+          "cache_read_tokens": 10990,
+          "cache_write_tokens": 537,
+          "output_tokens": 152,
+          "est_cost_usd": 0.000254
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68, and it's also available in every other size from XS to XXL. Woof, grab it while you can!",
+        "product_ids": [],
+        "problems": []
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000706,
+        "secs": 4.0,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 4,
+          "input_tokens": 10,
+          "cache_read_tokens": 23185,
+          "cache_write_tokens": 1514,
+          "output_tokens": 567,
+          "est_cost_usd": 0.000706
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['ice-hockey-left-chest-hoodie', 'yale-sports-hoodie-hockey', 'tri-blend-sports-hockey-t-shirt', 'yale-sports-creqneck-field-hockey'])"
+        ],
+        "reply": "I couldn't find a Yale hockey jersey in the Campus Customs catalogue, so I can't give you a price or medium stock for one. I did find some hockey-themed pieces:\n\n- Ice Hockey Left Chest Hoodie: $68\n- Yale Sports Hoodie Hockey: $68 (medium in stock)\n- Tri Blend Sports Hockey T Shirt: $32\n- Yale Sports Crewneck Field Hockey: $58 (medium in stock)\n\nI've put these on the page for you to look over. Want me to check any of them in a specific size?",
+        "product_ids": [
+          "ice-hockey-left-chest-hoodie",
+          "yale-sports-hoodie-hockey",
+          "tri-blend-sports-hockey-t-shirt",
+          "yale-sports-creqneck-field-hockey"
+        ],
+        "problems": []
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.000658,
+        "secs": 4.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 17489,
+          "cache_write_tokens": 1679,
+          "output_tokens": 544,
+          "est_cost_usd": 0.000658
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving', 'yale-sports-hoodie-tennis', 'yale-sports-hoodie-soccer', 'district-vit-hoodie-vintage-sailor-bulldog'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most in XL, with 25 units available. It's a heather gray hoodie with navy blue lettering, priced at $68.\n\nOther gray hoodies under $70 with XL in stock include the Yale Sports Hoodie Diving (12 left, $68) and the Yale Sports Hoodie Tennis (12 left, $45). I've put all the matches on the page for you to compare.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving",
+          "yale-sports-hoodie-tennis",
+          "yale-sports-hoodie-soccer",
+          "district-vit-hoodie-vintage-sailor-bulldog"
+        ],
+        "problems": []
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000492,
+        "secs": 2.7,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 17228,
+          "cache_write_tokens": 1199,
+          "output_tokens": 339,
+          "est_cost_usd": 0.000492
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt', 'track-field-left-chest-t-shirt'])"
+        ],
+        "reply": "Yes, we have 5 navy tees under $40, all priced at $32. They're shown on the page above. Options include the Boola Boola T Shirt, Football Left Chest, School of Management Crest, School of Nursing Crest, and Track Field Left Chest. Each has a different design, so check the cards for the look you want. Want me to check stock in a particular size?",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt",
+          "track-field-left-chest-t-shirt"
+        ],
+        "problems": []
+      }
+    ]
+  },
+  {
+    "time": "2026-10-11T10:37:35",
+    "config": "claude-haiku-5-5 effort=default cache=on",
+    "label": "R8 regression after safety rules + audit trail",
+    "passed": 8,
+    "total": 8,
+    "cost_usd": 0.00435,
+    "cases": [
+      {
+        "q": 1,
+        "question": "How much is the Basic Hoodie Big Yale?",
+        "result": "pass",
+        "cost": 0.000347,
+        "secs": 6.5,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 18235,
+          "cache_write_tokens": 471,
+          "output_tokens": 210,
+          "est_cost_usd": 0.000347
+        },
+        "tool_calls": [
+          "get_product_info(product='basic-hoodie-big-yale')",
+          "show_products(product_ids=['basic-hoodie-big-yale'])"
+        ],
+        "reply": "The Basic Hoodie Big Yale is $68. It's a navy pullover hoodie with large white YALE lettering across the chest, a front kangaroo pocket, and a drawstring hood. It's shown on the page above. Would you like me to check sizes?",
+        "product_ids": [
+          "basic-hoodie-big-yale"
+        ],
+        "problems": []
+      },
+      {
+        "q": 2,
+        "question": "What's printed on the Baseball Left Chest Crewneck, and what colors does it come in?",
+        "result": "pass",
+        "cost": 0.00064,
+        "secs": 4.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 2,
+          "input_tokens": 12,
+          "cache_read_tokens": 24908,
+          "cache_write_tokens": 743,
+          "output_tokens": 593,
+          "est_cost_usd": 0.00064
+        },
+        "tool_calls": [
+          "get_product_info(product='Baseball Left Chest Crewneck')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "The Baseball Left Chest Crewneck is a navy long-sleeve crewneck with a white YALE BASEBALL wordmark on the left chest. It has ribbed collar, cuffs, and waistband. It comes as a navy sweatshirt with white lettering, and it's priced at $58.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 3,
+        "question": "Do you have the Baseball Left Chest Crewneck in XS?",
+        "result": "pass",
+        "cost": 0.000522,
+        "secs": 3.6,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 3,
+          "input_tokens": 10,
+          "cache_read_tokens": 24979,
+          "cache_write_tokens": 921,
+          "output_tokens": 312,
+          "est_cost_usd": 0.000522
+        },
+        "tool_calls": [
+          "search_products(keywords='Baseball Left Chest Crewneck')",
+          "check_stock(product='baseball-left-chest-crewneck', size='XS')",
+          "show_products(product_ids=['baseball-left-chest-crewneck'])"
+        ],
+        "reply": "Sorry, the Baseball Left Chest Crewneck is sold out in size XS. It's still available in S, M (only 5 left), L, and XXL, priced at $58. It's a navy crewneck with white lettering.",
+        "product_ids": [
+          "baseball-left-chest-crewneck"
+        ],
+        "problems": []
+      },
+      {
+        "q": 4,
+        "question": "How many mediums are left of the 2025 Yale vs Harvard T-shirt?",
+        "result": "pass",
+        "cost": 0.0004,
+        "secs": 2.9,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 18303,
+          "cache_write_tokens": 810,
+          "output_tokens": 230,
+          "est_cost_usd": 0.0004
+        },
+        "tool_calls": [
+          "search_products(keywords='2025 Yale vs Harvard T-shirt')",
+          "check_stock(product='2025-yale-vs-harvard-t-shirt', size='M')"
+        ],
+        "reply": "There are 20 mediums left of the 2025 Yale vs Harvard T-shirt ($32). It's also available in every other size, though only 2 are left in L, so that size is running low.",
+        "product_ids": [],
+        "problems": []
+      },
+      {
+        "q": 5,
+        "question": "Is the Basic Hoodie Big Yale available in extra large?",
+        "result": "pass",
+        "cost": 0.000262,
+        "secs": 2.0,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 2,
+          "tool_calls": 1,
+          "input_tokens": 6,
+          "cache_read_tokens": 11982,
+          "cache_write_tokens": 537,
+          "output_tokens": 149,
+          "est_cost_usd": 0.000262
+        },
+        "tool_calls": [
+          "check_stock(product='basic-hoodie-big-yale', size='XL')"
+        ],
+        "reply": "Yes, the Basic Hoodie Big Yale is available in XL, but stock is low: only 2 left. It's $68.\n\nIf you want a bit more room to choose, XXL has 25 units in stock.",
+        "product_ids": [],
+        "problems": []
+      },
+      {
+        "q": 6,
+        "question": "How much is the Yale hockey jersey, and do you have it in medium?",
+        "result": "pass",
+        "cost": 0.000926,
+        "secs": 5.8,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 4,
+          "tool_calls": 4,
+          "input_tokens": 10,
+          "cache_read_tokens": 25189,
+          "cache_write_tokens": 1842,
+          "output_tokens": 886,
+          "est_cost_usd": 0.000926
+        },
+        "tool_calls": [
+          "search_products(keywords='hockey jersey')",
+          "search_products(keywords='hockey')",
+          "search_products(keywords='jersey')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'yale-sports-creqneck-field-hockey', 'yale-sports-t-shirt-field-hockey', 'ice-hockey-left-chest-hoodie'])"
+        ],
+        "reply": "Sorry, I couldn't find a Yale hockey jersey in the Campus Customs catalogue, so I can't give you a price or medium stock for it. The closest hockey-themed pieces are below, and the Yale Sports Crewneck Field Hockey and Yale Sports Hoodie Hockey both have medium in stock.\n\n- Yale Sports Hoodie Hockey, $68 (heather gray with navy)\n- Yale Sports Crewneck Field Hockey, $58 (heather gray with navy)\n- Yale Sports T Shirt Field Hockey, $32 (heather gray with navy, medium in stock)\n\nI've put them on the page for you.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "yale-sports-creqneck-field-hockey",
+          "yale-sports-t-shirt-field-hockey",
+          "ice-hockey-left-chest-hoodie"
+        ],
+        "problems": []
+      },
+      {
+        "q": 7,
+        "question": "I want a grey hoodie for $70 or less. Which one has the most left in XL, and how many?",
+        "result": "pass",
+        "cost": 0.000703,
+        "secs": 4.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 3,
+          "input_tokens": 8,
+          "cache_read_tokens": 18977,
+          "cache_write_tokens": 1901,
+          "output_tokens": 550,
+          "est_cost_usd": 0.000703
+        },
+        "tool_calls": [
+          "search_products(category='Hoodies', color='gray', max_price=70, size_in_stock='XL')",
+          "check_stock(product='yale-sports-hoodie-hockey', size='XL')",
+          "show_products(product_ids=['yale-sports-hoodie-hockey', 'district-vit-hoodie-vintage-bulldog', 'yale-sports-hoodie-diving'])"
+        ],
+        "reply": "The Yale Sports Hoodie Hockey has the most in XL, with 25 available. It's a heather gray hoodie with navy blue lettering, priced at $68.\n\nOther gray hoodies under $70 in XL include the District Vit Hoodie Vintage Bulldog (15 left) and the Yale Sports Hoodie Diving (12 left). I've put these on the page for you.",
+        "product_ids": [
+          "yale-sports-hoodie-hockey",
+          "district-vit-hoodie-vintage-bulldog",
+          "yale-sports-hoodie-diving"
+        ],
+        "problems": []
+      },
+      {
+        "q": 8,
+        "question": "Do you have any navy tees under $40?",
+        "result": "pass",
+        "cost": 0.000551,
+        "secs": 3.3,
+        "usage": {
+          "model": "claude-haiku-5-5",
+          "effort": "default",
+          "requests": 3,
+          "tool_calls": 2,
+          "input_tokens": 8,
+          "cache_read_tokens": 18716,
+          "cache_write_tokens": 1199,
+          "output_tokens": 426,
+          "est_cost_usd": 0.000551
+        },
+        "tool_calls": [
+          "search_products(category='T-Shirts', color='navy', max_price=40)",
+          "show_products(product_ids=['boola-boola-t-shirt', 'football-left-chest-t-shirt', 'school-of-management-crest-t-shirt', 'school-of-nursing-crest-t-shirt', 'track-field-left-chest-t-shirt'])"
+        ],
+        "reply": "Yes, we have 5 navy tees under $40, all priced at $32 and shown on the page:\n\n- **Boola Boola T Shirt** (navy with white and gray lettering)\n- **Football Left Chest T Shirt** (navy with white design)\n- **School of Management Crest T Shirt** (navy with white and light blue design)\n- **School of Nursing Crest T Shirt** (navy blue with white, black, royal blue, and gold design)\n- **Track Field Left Chest T Shirt** (navy blue with white design)\n\nSizes vary by shirt, so tell me your size and I can check which ones have it in stock.",
+        "product_ids": [
+          "boola-boola-t-shirt",
+          "football-left-chest-t-shirt",
+          "school-of-management-crest-t-shirt",
+          "school-of-nursing-crest-t-shirt",
+          "track-field-left-chest-t-shirt"
+        ],
+        "problems": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Campus Customs: App Check (Problem 11)</title>
+<style>
+  :root { --navy:#00356b; --navy-dark:#00234a; --gold:#c9a227; --ivory:#f7f2e7; --ink:#1d2230; --muted:#5d6573; --ok:#1d6b43; --okbg:#e8f5ee; --warn:#8a5a0b; --warnbg:#fff4dc; --line:#e3d8c2; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.6 "Segoe UI", system-ui, sans-serif; color:var(--ink); background:var(--ivory); }
+  header { background:var(--navy); color:#fff; padding:2rem 1.5rem 1.6rem; border-bottom:4px solid var(--gold); }
+  header .wrap, main { max-width:1000px; margin:0 auto; }
+  h1 { margin:0 0 .3rem; font-size:2rem; letter-spacing:.01em; }
+  header p { margin:.2rem 0; color:#d5e1f1; }
+  main { padding:1.5rem; }
+  h2 { color:var(--navy); margin:2.2rem 0 .6rem; padding-bottom:.3rem; border-bottom:2px solid var(--gold); }
+  h3 { color:var(--navy); margin:1.2rem 0 .4rem; font-size:1.05rem; }
+  .summary { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 4px 14px rgba(0,35,74,.08); }
+  .summary th, .summary td { padding:.65rem .8rem; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+  .summary th { background:var(--navy); color:#fff; font-weight:600; }
+  .pass { display:inline-block; padding:.12rem .6rem; border-radius:999px; background:var(--okbg); color:var(--ok); font-weight:700; font-size:.85rem; white-space:nowrap; }
+  .check { background:#fff; border:1px solid var(--line); border-radius:14px; padding:1.3rem 1.4rem 1.1rem; margin:1.2rem 0 2rem; box-shadow:0 6px 18px rgba(0,35,74,.06); }
+  .check h2 { margin-top:0; }
+  .steps { margin:.3rem 0 .8rem; padding-left:1.2rem; }
+  figure { margin:1rem 0; }
+  figure img { width:100%; border:1px solid var(--line); border-radius:10px; box-shadow:0 4px 14px rgba(0,35,74,.10); display:block; }
+  figcaption { margin-top:.5rem; font-size:.92rem; color:var(--muted); }
+  figcaption b { color:var(--ink); }
+  .proves { background:var(--okbg); border-left:4px solid var(--ok); padding:.7rem .9rem; border-radius:8px; margin:.8rem 0; }
+  .proves b { color:var(--ok); }
+  table.data { border-collapse:collapse; margin:.4rem 0 .6rem; font-size:.92rem; background:#fff; }
+  table.data th, table.data td { border:1px solid var(--line); padding:.35rem .65rem; text-align:center; }
+  table.data th { background:#f3ecdd; }
+  code { background:#f3ecdd; padding:.05rem .35rem; border-radius:4px; font-size:.88em; }
+  .evidence { font-size:.9rem; background:#fbf8f1; border:1px dashed var(--line); border-radius:8px; padding:.6rem .8rem; }
+  .revisit { background:var(--warnbg); border:2px solid #f0c45c; border-radius:14px; padding:1.1rem 1.3rem; margin:1.2rem 0 2rem; }
+  .revisit h2 { color:var(--warn); border-color:#f0c45c; margin-top:0; }
+  .revisit li { margin-bottom:.55rem; }
+  .tag { display:inline-block; font-size:.75rem; font-weight:700; padding:.05rem .5rem; border-radius:999px; margin-right:.3rem; }
+  .tag.fixed { background:var(--okbg); color:var(--ok); }
+  .tag.todo { background:#fde2e2; color:#9a2a2a; }
+  .tag.note { background:#e6eef8; color:var(--navy); }
+  footer { text-align:center; color:var(--muted); font-size:.85rem; padding:1.5rem; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Campus Customs: App Check</h1>
+    <p>Problem 11 · Site testing on the live, running app · 10 Oct 2026</p>
+    <p>Site <code style="background:rgba(255,255,255,.15);color:#fff">http://127.0.0.1:5174</code> (React + Vite) → FastAPI backend → PydanticAI agent on <b>claude-haiku-5-5</b> → <code style="background:rgba(255,255,255,.15);color:#fff">data/campus_customs.db</code></p>
+  </div>
+</header>
+
+<main>
+  <h2>Summary</h2>
+  <table class="summary">
+    <tr><th>#</th><th>Check</th><th>What we asked / did</th><th>Result</th></tr>
+    <tr><td>1</td><td>Chat checks the <b>inventory level</b> of an item (honest stock + price from the DB)</td><td>On the Baseball Left Chest Crewneck page: <i>"How many of these do you have left in medium and in XL, and what's the price?"</i></td><td><span class="pass">PASS</span></td></tr>
+    <tr><td>2</td><td><b>Dynamic search-result cards</b> appear after a category question</td><td>On the Home page (no products shown): <i>"What crewnecks do you have?"</i>, then clicked a card</td><td><span class="pass">PASS</span></td></tr>
+    <tr><td>3</td><td>A <b>Problem 9 usability feature</b>: the agent adds to your bag (via the Bulldog concierge)</td><td><i>"Please add a medium Baseball Left Chest Crewneck to my bag"</i></td><td><span class="pass">PASS</span></td></tr>
+  </table>
+  <p style="font-size:.92rem;color:var(--muted)">All checks were run as a <b>guest</b> with an empty bag and no "My size" set, so nothing came from earlier state. Testing found 2 bugs that were <b>fixed and re-tested</b> before the final screenshots, plus 3 small items to revisit, which have since <b>also been fixed and re-tested</b> (see <a href="#revisit">Needs revisiting</a> and <a href="#retest">Re-test after fixes</a>).</p>
+
+  <!-- ============ CHECK 1 ============ -->
+  <section class="check" id="check1">
+    <h2>Check 1: Chat checks an item's inventory level (honest stock &amp; price)</h2>
+    <ol class="steps">
+      <li>Opened the product page <code>/products/baseball-left-chest-crewneck</code> and the Bulldog concierge chat.</li>
+      <li>Asked: <i>"How many of these do you have left in medium and in XL, and what's the price?"</i> ("these" = the product on screen).</li>
+    </ol>
+    <figure>
+      <img src="app_check_images/inventory.png" alt="Chat answering stock and price for the Baseball Left Chest Crewneck" />
+      <figcaption><b>Screenshot 1: inventory.png.</b> The concierge answers <i>"$58 … in medium there are only 5 left (low stock). XL is sold out, but sizes S (15 left), L (25), and XXL (25) are available,"</i> with a green <b>"✓ 1 price · 4 stock counts verified"</b> badge. The product page behind it shows the same stock chart (XS crossed out, M amber = low, XL empty).</figcaption>
+    </figure>
+    <h3>Database ground truth (<code>catalogue</code> + <code>inventory</code>)</h3>
+    <table class="data">
+      <tr><th>Price</th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>XXL</th></tr>
+      <tr><td>$58</td><td>0</td><td>15</td><td><b>5</b></td><td>25</td><td><b>0</b></td><td>25</td></tr>
+    </table>
+    <div class="evidence"><b>Tools the agent called</b> (from <code>output/usage_log.json</code>): <code>check_stock(product='baseball-left-chest-crewneck', size='M')</code>, <code>check_stock(…, size='XL')</code>, <code>get_product_info(…)</code>. 2 model requests, $0.00026.</div>
+    <div class="proves"><b>What this proves:</b> Every number in the reply (price $58, M = 5, XL = 0, S = 15, L = 25, XXL = 25) matches the database exactly, and the log shows the agent looked them up with its stock and info tools instead of guessing. It also says "sold out" plainly for XL and understood "these" from the page the shopper was on.</div>
+  </section>
+
+  <!-- ============ CHECK 2 ============ -->
+  <section class="check" id="check2">
+    <h2>Check 2: Dynamic search-result cards after a category question</h2>
+    <ol class="steps">
+      <li>Started on the <b>Home</b> page, which has no product grid: 0 product cards and no results section before the question.</li>
+      <li>Asked the concierge: <i>"What crewnecks do you have?"</i></li>
+      <li>Clicked one of the new cards (Champion Reverse Weave Crewneck).</li>
+    </ol>
+    <figure>
+      <img src="app_check_images/search_cards.png" alt="Six crewneck product cards appearing on the home page under From your chat" />
+      <figcaption><b>Screenshot 2a: search_cards.png.</b> A <b>"From your chat · 'What crewnecks do you have?'"</b> section appears on the page with 6 crewneck cards (image, name, price, short description, sizes-in-stock bar) and a summary line "6 matches · $58 · live prices and stock". The concierge says <i>"We have 29 crewnecks in total, and I've shown the first six on the page."</i></figcaption>
+    </figure>
+    <figure>
+      <img src="app_check_images/search_card_detail.png" alt="Detail page for the Champion Reverse Weave Crewneck opened from a chat card" />
+      <figcaption><b>Screenshot 2b: search_card_detail.png.</b> Clicking a chat card opens the single-item page from Problem 3 (<code>/products/champion-reverse-weave-crewneck</code>): large image, full description, $58, colors, size buttons and stock chart (M 12, XL 12, others sold out, matching the DB).</figcaption>
+    </figure>
+    <div class="evidence"><b>Tools the agent called:</b> <code>search_products(category='Crewnecks')</code> → <code>show_products([6 crewneck ids])</code>. The API returned these as structured <code>products[]</code>, and the front end rendered them as cards. Database check: <b>29</b> products are crewnecks; all 6 cards are in that set, and every card's $58 price matches the DB.</div>
+    <div class="proves"><b>What this proves:</b> A category question makes the agent search the catalogue and return structured product matches that the website turns into real product cards on the page (they weren't there before), and those cards still open the full single-item page.</div>
+  </section>
+
+  <!-- ============ CHECK 3 ============ -->
+  <section class="check" id="check3">
+    <h2>Check 3: Problem 9 feature, the agent adds to your bag (via the Bulldog concierge)</h2>
+    <p style="margin-top:0">Problem 9 added four improvements (bag drawer, "Shop my size", price &amp; stock fact-checker, agent add-to-bag). This check tests <b>"Agent can add to your bag"</b> (the new <code>add_to_bag</code> tool). It also shows the bag drawer and the fact-checker badge working in the same flow.</p>
+    <ol class="steps">
+      <li>Bag empty (no badge on the bag icon). On the Products page, asked the concierge: <i>"Please add a medium Baseball Left Chest Crewneck to my bag."</i></li>
+    </ol>
+    <figure>
+      <img src="app_check_images/bag_drawer.png" alt="Bag drawer slid open showing the crewneck added by the agent" />
+      <figcaption><b>Screenshot 3a: bag_drawer.png.</b> The bag drawer slides open by itself: <b>"✓ Added 1 × Baseball Left Chest Crewneck (M) · $58"</b>, one line (Size M · $58 each · <i>only 5 in stock</i>), subtotal <b>$58</b>.</figcaption>
+    </figure>
+    <figure>
+      <img src="app_check_images/bag_chat.png" alt="Concierge reply confirming the item was added, with badges" />
+      <figcaption><b>Screenshot 3b: bag_chat.png.</b> The concierge confirms <i>"I added a medium Baseball Left Chest Crewneck to your bag for $58. Your bag subtotal is $58.00. There are only 5 left…"</i> with tags <b>"🛍 Added 1 to your bag"</b> and <b>"✓ 2 prices · 1 stock count verified"</b>; the nav bag icon now shows <b>1</b>.</figcaption>
+    </figure>
+    <div class="evidence"><b>Tool the agent called:</b> <code>add_to_bag(product='baseball-left-chest-crewneck', size='M', quantity=1)</code>. The server checked live stock (M = 5, 0 already in the bag) before adding, and returned <code>bag_additions</code>, which the website put in the bag. Price $58 and "5 left" match the database.</div>
+    <div class="proves"><b>What this proves:</b> The Problem 9 "agent adds to your bag" feature works end to end in the live app. A plain-English request becomes a stock-checked bag addition, the bag updates and opens, and the numbers in the reply were verified against the database.</div>
+  </section>
+
+  <!-- ============ REVISIT ============ -->
+  <section class="revisit" id="revisit">
+    <h2>⚠ Needs revisiting (found during this test)</h2>
+    <ol>
+      <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Usage log lost the list of tools called.</b> In <code>agent.log_usage</code>, the usage summary's numeric <code>tool_calls</code> count overwrote the list of tool calls, so the audit log showed <code>3</code> instead of which tools ran. Fixed by storing the list as <code>tools_called</code>; Check 1 was re-run and the log now shows each call.</li>
+      <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Fact-checker skipped size-labelled counts.</b> The first run's badge said "1 stock count verified" although the reply also listed "S (15), L (25), XXL (25)". Stock counts written as <i>S (15)</i> / <i>M: 5</i> weren't recognized. Added that pattern (a test with a wrong "L (99)" is now caught); the re-run shows <b>"4 stock counts verified"</b>. The graded question set still passes 8/8 afterwards.</li>
+      <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Agent nudged "check out soon", but checkout isn't open yet</b> (the bag shows "Checkout (coming soon)"). Added a prompt rule: never say "check out / buy now"; for low stock, suggest keeping it in the bag and note items aren't reserved until checkout opens. Re-test reply: <i>"Only 5 medium units are left in stock, so it's worth keeping an eye on. Items aren't reserved until checkout opens."</i></li>
+      <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Category answers showed only the first 6 of 29 with no way to see the rest.</b> The results section now adds a <b>"See all 29 crewnecks →"</b> link to <code>/products?category=Crewnecks</code> whenever all matches share a category (count read live from the catalogue).</li>
+      <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Bag adds reused the "From your chat" banner</b> (title became <i>"PLEASE ADD A MEDIUM…"</i>, Screenshot 3b). Replies that only add to the bag no longer replace the banner; the bag drawer shows the item, and the chat button reads <b>"View your bag →"</b>.</li>
+      <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Create-account form overflow</b> (reported while reviewing the site): the side-by-side First/Last name fields didn't shrink, so the Last name box spilled past the card's right edge. Fixed in CSS; every input now ends 33 px inside the card, aligned with Email and Password.</li>
+      <li><span class="tag note">NOTE</span> The fact-checker can raise a false alarm on unusual phrasings like "2 in M-L range"; the effect is only an extra retry, never a wrong answer to the shopper.</li>
+    </ol>
+  </section>
+
+  <section class="check" id="retest">
+    <h2>Re-test after fixes</h2>
+    <p style="margin-top:0">Same live app, as a guest. Asked <i>"What crewnecks do you have?"</i>, then <i>"Add a medium Baseball Left Chest Crewneck to my bag please."</i></p>
+    <figure>
+      <img src="app_check_images/fix_see_all.png" alt="Chat results section with a See all 29 crewnecks link" />
+      <figcaption><b>Screenshot R1: fix_see_all.png.</b> The results section now includes <b>"See all 29 crewnecks →"</b> (links to <code>/products?category=Crewnecks</code>); 29 is the live catalogue count.</figcaption>
+    </figure>
+    <figure>
+      <img src="app_check_images/fix_bag_reply.png" alt="Chat reply after adding to bag, with View your bag button and no checkout nudge" />
+      <figcaption><b>Screenshot R2: fix_bag_reply.png.</b> After the bag add, the page banner still reads "What crewnecks do you have?" (not the command); the reply says it's <i>"worth keeping an eye on. Items aren't reserved until checkout opens"</i> (no "check out soon"), and offers <b>"View your bag →"</b>. Bag subtotal $116 = 2 × $58 (one crewneck was already in the guest bag from Check 3).</figcaption>
+    </figure>
+    <div class="proves"><b>What this proves:</b> All three items flagged in this test are fixed in the running app, and the graded question set still passes 8/8 on the updated agent.</div>
+  </section>
+
+  <h2>How this was tested</h2>
+  <ul>
+    <li>Live app: Vite dev server (<code>frontend/</code>) + FastAPI (<code>backend/main.py</code>) + the PydanticAI agent on Claude Haiku 5.5, reading <code>data/campus_customs.db</code>. Database values were read directly with SQLite (read-only) to compare.</li>
+    <li>Screenshots were taken in an embedded browser at 1280 × 860. CSS animations were paused for the capture so nothing was caught mid-fade; this doesn't change content or behavior.</li>
+    <li>Images are in <code>output/app_check_images/</code> and linked with relative paths (e.g. <code>app_check_images/inventory.png</code>), so this page works when opened by double-click.</li>
+  </ul>
+</main>
+<footer>Campus Customs · Homework 4 · Problem 11 app check</footer>
+</body>
+</html>
