@@ -3,7 +3,8 @@
 The agent is built once from:
   - the system prompt in prompts/prompt.md
   - the model chosen in .env (MODEL_PROVIDER / ANTHROPIC_MODEL / OPENAI_MODEL)
-  - three tools: search_products, get_product_info, check_stock (thin wrappers around tools.py)
+  - five tools: search_products, get_product_info, check_stock, show_products, add_to_bag
+    (thin wrappers around tools.py)
   - plain-text replies; product cards are chosen with the show_products tool, and run_chat()
     packages both into a ShopReply (models.py)
 

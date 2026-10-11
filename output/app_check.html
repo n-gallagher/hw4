@@ -47,7 +47,7 @@
 <header>
   <div class="wrap">
     <h1>Campus Customs: App Check</h1>
-    <p>Problem 11 · Site testing on the live, running app · 10 Oct 2026</p>
+    <p>Problem 11 · Site testing on the live, running app · 10 Oct 2026 (Checks 1–3 screenshots re-taken 11 Oct 2026 after the chat was renamed <b>Handsome Dan</b>)</p>
     <p>Site <code style="background:rgba(255,255,255,.15);color:#fff">http://127.0.0.1:5174</code> (React + Vite) → FastAPI backend → PydanticAI agent on <b>claude-haiku-5-5</b> → <code style="background:rgba(255,255,255,.15);color:#fff">data/campus_customs.db</code></p>
   </div>
 </header>
@@ -58,7 +58,7 @@
     <tr><th>#</th><th>Check</th><th>What we asked / did</th><th>Result</th></tr>
     <tr><td>1</td><td>Chat checks the <b>inventory level</b> of an item (honest stock + price from the DB)</td><td>On the Baseball Left Chest Crewneck page: <i>"How many of these do you have left in medium and in XL, and what's the price?"</i></td><td><span class="pass">PASS</span></td></tr>
     <tr><td>2</td><td><b>Dynamic search-result cards</b> appear after a category question</td><td>On the Home page (no products shown): <i>"What crewnecks do you have?"</i>, then clicked a card</td><td><span class="pass">PASS</span></td></tr>
-    <tr><td>3</td><td>A <b>Problem 9 usability feature</b>: the agent adds to your bag (via the Bulldog concierge)</td><td><i>"Please add a medium Baseball Left Chest Crewneck to my bag"</i></td><td><span class="pass">PASS</span></td></tr>
+    <tr><td>3</td><td>A <b>Problem 9 usability feature</b>: the agent adds to your bag (via Handsome Dan, the bulldog concierge)</td><td><i>"Please add a medium Baseball Left Chest Crewneck to my bag"</i></td><td><span class="pass">PASS</span></td></tr>
   </table>
   <p style="font-size:.92rem;color:var(--muted)">All checks were run as a <b>guest</b> with an empty bag and no "My size" set, so nothing came from earlier state. Testing found 2 bugs that were <b>fixed and re-tested</b> before the final screenshots, plus 3 small items to revisit, which have since <b>also been fixed and re-tested</b> (see <a href="#revisit">Needs revisiting</a> and <a href="#retest">Re-test after fixes</a>).</p>
 
@@ -66,19 +66,19 @@
   <section class="check" id="check1">
     <h2>Check 1: Chat checks an item's inventory level (honest stock &amp; price)</h2>
     <ol class="steps">
-      <li>Opened the product page <code>/products/baseball-left-chest-crewneck</code> and the Bulldog concierge chat.</li>
+      <li>Opened the product page <code>/products/baseball-left-chest-crewneck</code> and the Handsome Dan chat (bottom right).</li>
       <li>Asked: <i>"How many of these do you have left in medium and in XL, and what's the price?"</i> ("these" = the product on screen).</li>
     </ol>
     <figure>
       <img src="app_check_images/inventory.png" alt="Chat answering stock and price for the Baseball Left Chest Crewneck" />
-      <figcaption><b>Screenshot 1: inventory.png.</b> The concierge answers <i>"$58 … in medium there are only 5 left (low stock). XL is sold out, but sizes S (15 left), L (25), and XXL (25) are available,"</i> with a green <b>"✓ 1 price · 4 stock counts verified"</b> badge. The product page behind it shows the same stock chart (XS crossed out, M amber = low, XL empty).</figcaption>
+      <figcaption><b>Screenshot 1: inventory.png.</b> Handsome Dan answers <i>"Medium has 5 left, which is low stock. The XL is sold out, though. The price is $58. In-stock sizes are S (15), L (25), and XXL (25) as well,"</i> with a green <b>"✓ 1 price · 4 stock counts verified"</b> badge. The product page behind it shows the same stock chart (XS crossed out, M amber = low, XL empty).</figcaption>
     </figure>
     <h3>Database ground truth (<code>catalogue</code> + <code>inventory</code>)</h3>
     <table class="data">
       <tr><th>Price</th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>XXL</th></tr>
       <tr><td>$58</td><td>0</td><td>15</td><td><b>5</b></td><td>25</td><td><b>0</b></td><td>25</td></tr>
     </table>
-    <div class="evidence"><b>Tools the agent called</b> (from <code>output/usage_log.json</code>): <code>check_stock(product='baseball-left-chest-crewneck', size='M')</code>, <code>check_stock(…, size='XL')</code>, <code>get_product_info(…)</code>. 2 model requests, $0.00026.</div>
+    <div class="evidence"><b>Tools the agent called</b> (from <code>output/usage_log.json</code>): <code>check_stock(product='baseball-left-chest-crewneck', size='M')</code>, <code>check_stock(…, size='XL')</code>, <code>get_product_info(…)</code>. 2 model requests, $0.0011.</div>
     <div class="proves"><b>What this proves:</b> Every number in the reply (price $58, M = 5, XL = 0, S = 15, L = 25, XXL = 25) matches the database exactly, and the log shows the agent looked them up with its stock and info tools instead of guessing. It also says "sold out" plainly for XL and understood "these" from the page the shopper was on.</div>
   </section>
 
@@ -87,12 +87,12 @@
     <h2>Check 2: Dynamic search-result cards after a category question</h2>
     <ol class="steps">
       <li>Started on the <b>Home</b> page, which has no product grid: 0 product cards and no results section before the question.</li>
-      <li>Asked the concierge: <i>"What crewnecks do you have?"</i></li>
+      <li>Asked Handsome Dan: <i>"What crewnecks do you have?"</i></li>
       <li>Clicked one of the new cards (Champion Reverse Weave Crewneck).</li>
     </ol>
     <figure>
       <img src="app_check_images/search_cards.png" alt="Six crewneck product cards appearing on the home page under From your chat" />
-      <figcaption><b>Screenshot 2a: search_cards.png.</b> A <b>"From your chat · 'What crewnecks do you have?'"</b> section appears on the page with 6 crewneck cards (image, name, price, short description, sizes-in-stock bar) and a summary line "6 matches · $58 · live prices and stock". The concierge says <i>"We have 29 crewnecks in total, and I've shown the first six on the page."</i></figcaption>
+      <figcaption><b>Screenshot 2a: search_cards.png.</b> A <b>"From your chat · 'What crewnecks do you have?'"</b> section appears on the page with 6 crewneck cards (image, name, price, short description, sizes-in-stock bar) a summary line "6 matches · $58 · live prices and stock", and a <b>"See all 29 crewnecks →"</b> link. Handsome Dan says <i>"We have 29 crewnecks in total. Here are the first six, all $58, shown on the page,"</i> and lists them.</figcaption>
     </figure>
     <figure>
       <img src="app_check_images/search_card_detail.png" alt="Detail page for the Champion Reverse Weave Crewneck opened from a chat card" />
@@ -104,10 +104,10 @@
 
   <!-- ============ CHECK 3 ============ -->
   <section class="check" id="check3">
-    <h2>Check 3: Problem 9 feature, the agent adds to your bag (via the Bulldog concierge)</h2>
+    <h2>Check 3: Problem 9 feature, the agent adds to your bag (via Handsome Dan)</h2>
     <p style="margin-top:0">Problem 9 added four improvements (bag drawer, "Shop my size", price &amp; stock fact-checker, agent add-to-bag). This check tests <b>"Agent can add to your bag"</b> (the new <code>add_to_bag</code> tool). It also shows the bag drawer and the fact-checker badge working in the same flow.</p>
     <ol class="steps">
-      <li>Bag empty (no badge on the bag icon). On the Products page, asked the concierge: <i>"Please add a medium Baseball Left Chest Crewneck to my bag."</i></li>
+      <li>Bag empty (no badge on the bag icon). On the Products page, asked Handsome Dan: <i>"Please add a medium Baseball Left Chest Crewneck to my bag."</i></li>
     </ol>
     <figure>
       <img src="app_check_images/bag_drawer.png" alt="Bag drawer slid open showing the crewneck added by the agent" />
@@ -115,9 +115,9 @@
     </figure>
     <figure>
       <img src="app_check_images/bag_chat.png" alt="Concierge reply confirming the item was added, with badges" />
-      <figcaption><b>Screenshot 3b: bag_chat.png.</b> The concierge confirms <i>"I added a medium Baseball Left Chest Crewneck to your bag for $58. Your bag subtotal is $58.00. There are only 5 left…"</i> with tags <b>"🛍 Added 1 to your bag"</b> and <b>"✓ 2 prices · 1 stock count verified"</b>; the nav bag icon now shows <b>1</b>.</figcaption>
+      <figcaption><b>Screenshot 3b: bag_chat.png.</b> Handsome Dan confirms <i>"I've added a medium Baseball Left Chest Crewneck (navy with white lettering) to your bag for $58. Your bag subtotal is $58.00. Only 5 are left in medium, so it's worth keeping in your bag,"</i> with tags <b>"🛍 Added 1 to your bag"</b> and <b>"✓ 2 prices verified"</b>, plus a <b>"View your bag →"</b> button; the nav bag icon now shows <b>1</b>.</figcaption>
     </figure>
-    <div class="evidence"><b>Tool the agent called:</b> <code>add_to_bag(product='baseball-left-chest-crewneck', size='M', quantity=1)</code>. The server checked live stock (M = 5, 0 already in the bag) before adding, and returned <code>bag_additions</code>, which the website put in the bag. Price $58 and "5 left" match the database.</div>
+    <div class="evidence"><b>Tools the agent called:</b> <code>search_products(keywords='baseball left chest crewneck')</code> → <code>add_to_bag(product='baseball-left-chest-crewneck', size='M', quantity=1)</code>. The server checked live stock (M = 5, 0 already in the bag) before adding, and returned <code>bag_additions</code>, which the website put in the bag. Price $58 and "5 left" match the database.</div>
     <div class="proves"><b>What this proves:</b> The Problem 9 "agent adds to your bag" feature works end to end in the live app. A plain-English request becomes a stock-checked bag addition, the bag updates and opens, and the numbers in the reply were verified against the database.</div>
   </section>
 
@@ -127,9 +127,9 @@
     <ol>
       <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Usage log lost the list of tools called.</b> In <code>agent.log_usage</code>, the usage summary's numeric <code>tool_calls</code> count overwrote the list of tool calls, so the audit log showed <code>3</code> instead of which tools ran. Fixed by storing the list as <code>tools_called</code>; Check 1 was re-run and the log now shows each call.</li>
       <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Fact-checker skipped size-labelled counts.</b> The first run's badge said "1 stock count verified" although the reply also listed "S (15), L (25), XXL (25)". Stock counts written as <i>S (15)</i> / <i>M: 5</i> weren't recognized. Added that pattern (a test with a wrong "L (99)" is now caught); the re-run shows <b>"4 stock counts verified"</b>. The graded question set still passes 8/8 afterwards.</li>
-      <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Agent nudged "check out soon", but checkout isn't open yet</b> (the bag shows "Checkout (coming soon)"). Added a prompt rule: never say "check out / buy now"; for low stock, suggest keeping it in the bag and note items aren't reserved until checkout opens. Re-test reply: <i>"Only 5 medium units are left in stock, so it's worth keeping an eye on. Items aren't reserved until checkout opens."</i></li>
+      <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Agent nudged "check out soon", but checkout isn't open yet</b> (the bag shows "Checkout (coming soon)"). Added a prompt rule: never say "check out / buy now"; for low stock, suggest keeping it in the bag and note items aren't reserved until checkout opens. (First-run reply: <i>"There are only 5 left in our system, so you may want to check out soon."</i>) Re-test reply: <i>"Only 5 medium units are left in stock, so it's worth keeping an eye on. Items aren't reserved until checkout opens."</i></li>
       <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Category answers showed only the first 6 of 29 with no way to see the rest.</b> The results section now adds a <b>"See all 29 crewnecks →"</b> link to <code>/products?category=Crewnecks</code> whenever all matches share a category (count read live from the catalogue).</li>
-      <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Bag adds reused the "From your chat" banner</b> (title became <i>"PLEASE ADD A MEDIUM…"</i>, Screenshot 3b). Replies that only add to the bag no longer replace the banner; the bag drawer shows the item, and the chat button reads <b>"View your bag →"</b>.</li>
+      <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Bag adds reused the "From your chat" banner</b> (in the first run its title became <i>"PLEASE ADD A MEDIUM…"</i>). Replies that only add to the bag no longer replace the banner; the bag drawer shows the item, and the chat button reads <b>"View your bag →"</b>.</li>
       <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Create-account form overflow</b> (reported while reviewing the site): the side-by-side First/Last name fields didn't shrink, so the Last name box spilled past the card's right edge. Fixed in CSS; every input now ends 33 px inside the card, aligned with Email and Password.</li>
       <li><span class="tag note">NOTE</span> The fact-checker can raise a false alarm on unusual phrasings like "2 in M-L range"; the effect is only an extra retry, never a wrong answer to the shopper.</li>
     </ol>

@@ -85,7 +85,7 @@ Vite proxy ──► FastAPI backend/main.py (:8000)
                                    ├─ instructions: prompts/prompt.md + per-request context block
                                    ├─ tools: search_products · get_product_info · check_stock · show_products · add_to_bag
                                    ├─ output validator: price & stock fact-checker
-                                   └─ logs: audit.py → output/audit_trail.json · usage → output/usage_log.json
+                                   └─ logs: audit trail → output/audit_trail.json · usage → output/usage_log.json
 ```
 
 **Back-end files**
@@ -93,13 +93,12 @@ Vite proxy ──► FastAPI backend/main.py (:8000)
 | File | Role |
 |---|---|
 | `main.py` | FastAPI app and routes; builds customer profile + page context; saves chat history. |
-| `agent.py` | Builds and runs the agent: prompt, model, tools, fact-checker, limits, usage log, audit hook. |
+| `agent.py` | Builds and runs the agent: prompt, model, tools, fact-checker, limits, usage log, append-only audit trail (section 11). |
 | `tools.py` | Read-only catalogue queries + the logic behind every agent tool + the fact-checker. |
 | `models.py` | All Pydantic / PydanticAI types (section 7). |
 | `prompts/prompt.md` | System prompt: persona, tool guide, price/stock rules, context rules, safety rules. |
 | `auth.py` | Sign-up, login, logout, signed session cookie, password hashing. |
 | `history.py` | Saving/loading logged-in shoppers' chat history. |
-| `audit.py` | Append-only audit trail (section 11). |
 | `images.py` | White-background copies of product photos. |
 | `cost_check.py`, `build_cost_report.py` | Graded question set + cost report (testing only). |
 
@@ -376,7 +375,7 @@ Written in `prompts/prompt.md` (section "Safety rules"); the agent must follow t
 
 ## 11. Audit trail (Problem 12)
 
-**File:** `output/audit_trail.json`, a JSON list that is **only ever appended to** (never wiped between runs). Written by `backend/audit.py`, called from `agent.run_chat()` after every chat turn, **including failed runs** (e.g. the request cap is hit), using PydanticAI's `capture_run_messages()`.
+**File:** `output/audit_trail.json`, a JSON list that is **only ever appended to** (never wiped between runs). Written by the audit-trail section of `backend/agent.py` (`audit_append`), called from `agent.run_chat()` after every chat turn, **including failed runs** (e.g. the request cap is hit), using PydanticAI's `capture_run_messages()`.
 
 **Each chat turn adds, in order:**
 
@@ -423,7 +422,7 @@ Written in `prompts/prompt.md` (section "Safety rules"); the agent must follow t
 | Bag | ≤ **10** per product+size line; ≤ 30 lines sent per request; capped at units in stock | `tools.MAX_PER_LINE`, `BagLine`, `ChatRequest` |
 | Chat input | message 1–2000 chars; guest history ≤ 20 turns (browser sends last 12); each turn ≤ 4000 chars | `ChatRequest`, `ChatWidget.tsx` |
 | Memory | agent sees last **20** saved messages; chat panel restores last **50** | `history.py` |
-| Audit/log text | args/results/messages trimmed to **200** chars, redacted | `audit.SHORT` |
+| Audit/log text | args/results/messages trimmed to **200** chars, redacted | `agent.AUDIT_SHORT` |
 | Auth | PBKDF2 600,000 iterations (seed: 120,000); password 8–128 chars; 5 failed logins / 15 min → 429; session 7 days | `auth.py` |
 | Photos | white-background copies made once at startup (~50 s); fill stops if > 85 % of a photo would be removed (keeps original) | `images.py` |
 | Ports | back end **8000** (assignment command), front end **5173** (Vite default; proxy → 8000) | `vite.config.ts` |

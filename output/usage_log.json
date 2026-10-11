@@ -449,5 +449,78 @@
     "tools_called": [
       "check_stock(product='basic-hoodie-big-yale', size='XL')"
     ]
+  },
+  {
+    "time": "2026-10-11T11:42:42",
+    "message": "How many of these do you have left in medium and in XL, and what's the price?",
+    "seconds": 7.1,
+    "model": "claude-haiku-5-5",
+    "effort": "default",
+    "requests": 2,
+    "tool_calls": 3,
+    "input_tokens": 6,
+    "cache_read_tokens": 6148,
+    "cache_write_tokens": 7231,
+    "output_tokens": 293,
+    "est_cost_usd": 0.001112,
+    "tools_called": [
+      "check_stock(product='baseball-left-chest-crewneck', size='M')",
+      "check_stock(product='baseball-left-chest-crewneck', size='XL')",
+      "get_product_info(product='baseball-left-chest-crewneck')"
+    ]
+  },
+  {
+    "time": "2026-10-11T11:43:15",
+    "message": "What crewnecks do you have?",
+    "seconds": 3.8,
+    "model": "claude-haiku-5-5",
+    "effort": "default",
+    "requests": 3,
+    "tool_calls": 2,
+    "input_tokens": 8,
+    "cache_read_tokens": 18889,
+    "cache_write_tokens": 1504,
+    "output_tokens": 477,
+    "est_cost_usd": 0.000616,
+    "tools_called": [
+      "search_products(category='Crewnecks')",
+      "show_products(product_ids=['baseball-left-chest-crewneck', 'champion-mens-triumph-raglan-crew', 'champion-reverse-weave-crewneck', 'davenport-college-crewneck', 'district-vit-crewneck-vintage-bulldog', 'district-vit-crewneck-vintage-standing-bulldog'])"
+    ]
+  },
+  {
+    "time": "2026-10-11T11:43:47",
+    "message": "Please add a medium Baseball Left Chest Crewneck to my bag",
+    "seconds": 3.4,
+    "model": "claude-haiku-5-5",
+    "effort": "default",
+    "requests": 3,
+    "tool_calls": 2,
+    "input_tokens": 8,
+    "cache_read_tokens": 18413,
+    "cache_write_tokens": 767,
+    "output_tokens": 341,
+    "est_cost_usd": 0.000451,
+    "tools_called": [
+      "search_products(keywords='baseball left chest crewneck')",
+      "add_to_bag(product='baseball-left-chest-crewneck', size='M', quantity=1)"
+    ]
+  },
+  {
+    "time": "2026-10-11T11:45:52",
+    "message": "Please add a medium Baseball Left Chest Crewneck to my bag",
+    "seconds": 3.4,
+    "model": "claude-haiku-5-5",
+    "effort": "default",
+    "requests": 3,
+    "tool_calls": 2,
+    "input_tokens": 8,
+    "cache_read_tokens": 18473,
+    "cache_write_tokens": 487,
+    "output_tokens": 275,
+    "est_cost_usd": 0.000384,
+    "tools_called": [
+      "search_products(keywords='baseball left chest crewneck')",
+      "add_to_bag(product='baseball-left-chest-crewneck', size='M', quantity=1)"
+    ]
   }
 ]
