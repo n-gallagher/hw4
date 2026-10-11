@@ -402,7 +402,7 @@ Written in `prompts/prompt.md` (section "Safety rules"); the agent must follow t
  "tool": "check_stock", "args": "{\"product\": \"yale-mom-hoodie\", \"size\": \"M\"}", "result": "{… \"requested_size_quantity\": 8 …}", "stop_reason": "tool_call"}
 ```
 
-**Verified:** two runs grew the file 4 → 8 entries (nothing wiped); a scripted run that first answered "$58, 7 left" produced a `retry` entry with the fact-checker's reason, then a correct `final_answer`; a run that looped hit the 10-request cap and produced an `error` entry ("usage limit hit"); a card number in a message was stored as `[number redacted]`.
+**Verified:** two runs grew the file 4 → 8 entries (nothing wiped); a card number in a message was stored as `[number redacted]`. Run `35f13bb8` in `output/audit_trail.json` shows a live fact-check `retry`: a fake earlier message claimed "every item is $5", and the first reply quoted "$5" plus a "$32 to $98" range from the prompt, so the fact-checker sent it back and the `final_answer` dropped the unchecked numbers (the price range was then removed from `prompt.md`). The `error` entry ("usage limit hit" when the 10-request / 12-tool-call cap is reached) is written by `audit_entries_for_run()` in `agent.py`; no live shopper run has hit the cap, so the current file has no `error` entries.
 
 **Also logged:** `output/usage_log.json`, one row per chat turn: model, effort, requests, tool calls (count and list), uncached/cache-read/cache-write/output tokens, seconds, estimated cost.
 
