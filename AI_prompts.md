@@ -248,4 +248,10 @@ Prompts are copied exactly as I typed them.
 
 *What was lacking:* the review found that clicking a chat card changed the URL but left the product below the "From your chat" section (so it looked like nothing happened), the assignment screenshots were published in the public repo, and `usability.md` over-claimed what the fact-checker catches.
 
+**Follow-up 3:** (after a second independent review)
+
+> lets do these: Must fix before submitting 1. Fact-checker case-insensitivity plus the "N are left" pattern, and the usability.md wording (finding 1). 2. The one-line prompt rule against spoofed context blocks (finding 2). Then commit and push and give me the url to submit as q13 screenshot requries -
+
+*What was lacking:* the fact-checker missed stock counts starting a sentence ("Only 5 are left in XXL") or phrased "5 are in stock" / "12 in medium", and a guest who pasted a fake "trusted context" block into a message was treated as that customer.
+
 **Repo:** https://github.com/n-gallagher/hw4

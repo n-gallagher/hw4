@@ -461,10 +461,13 @@ def add_to_bag(db_path: Path, bag: list[BagLine], product: str, size: str | None
 # ---------- Price & stock fact-checker (Problem 9) ----------
 
 PRICE_RE = re.compile(r"\$\s?(\d{1,5}(?:,\d{3})*(?:\.\d{1,2})?)")
+# Words match in any case ("Only 5 left" at the start of a sentence); size letters stay upper-case
+# so ordinary words aren't read as sizes.
+_SIZE_WORDS = r"(?i:x-?small|small|medium|x-?large|xx-?large|large)"
 STOCK_RE = re.compile(
-    r"\b(\d{1,4})\s+(?:(?:units?|pieces?|of them)\s+)?(?:left|available|in stock|remaining)\b"
-    r"|\bonly\s+(\d{1,4})\b"
-    r"|\b(\d{1,4})\s+(?:units?\s+)?in\s+(?:size\s+)?(?:XXL|XL|XS|S|M|L)\b"
+    r"\b(\d{1,4})\s+(?i:(?:(?:units?|pieces?|of them)\s+)?(?:(?:are|is)\s+)?(?:left|available|in stock|remaining))\b"
+    r"|\b(?i:only)\s+(\d{1,4})\b"
+    r"|\b(\d{1,4})\s+(?i:(?:units?\s+)?(?:are\s+)?in\s+(?:size\s+)?)(?:XXL|XL|XS|S|M|L|" + _SIZE_WORDS + r")\b"
     # size-labelled counts: "S (15)", "M: 5", "L - 25" (found missing in the Problem 11 app check)
     r"|\b(?:XXL|XL|XS|S|M|L)\s*(?:\(|:|-|–)\s*(\d{1,4})\b"
 )

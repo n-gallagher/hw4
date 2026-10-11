@@ -6,7 +6,7 @@ Four improvements on top of the core shop: two on the front end and two in the a
 |---|---|---|---|
 | 1 | 🛍 Shopping bag drawer | Front end | Pick a size → **Add to bag** → a bag slides in with sizes, quantities and a live subtotal; you can never add more than is in stock. |
 | 2 | 📏 "Shop my size" mode | Front end | Set your size once; every product card shows that size's stock, sold-out items fade, and one click filters to only what you can actually buy. |
-| 3 | ✅ Price & stock fact-checker | Agent / backend | Code checks every `$` price and stock count in a chatbot reply against the database before the shopper sees it; a wrong number sends the reply back to be fixed. |
+| 3 | ✅ Price & stock fact-checker | Agent / backend | Code checks every `$` price, and stock counts written in common forms ("Only 2 left", "5 are in stock", "12 in medium", "S (15)"), against the database before the shopper sees the reply; a wrong number sends it back to be fixed. |
 | 4 | 🤖 Agent can add to your bag | Agent / backend | New `add_to_bag` tool: "add a large Crew Left Chest Hoodie to my bag" checks live stock and drops it into the bag. |
 
 The four work together: the agent knows your size (2) and your bag (1), can add to the bag (4), and the prices and stock counts it quotes are checked (3).
@@ -87,7 +87,7 @@ The four work together: the agent knows your size (2) and your bag (1), can add 
 **What we added**
 - A PydanticAI **output validator** (`verify_prices_and_stock` in `agent.py`, logic in `tools.fact_check`) that runs on every reply **before** the shopper sees it:
   1. It collects every number the tools returned from the database **in this turn** (prices, units per size, bag subtotals).
-  2. It finds every `$` amount and every stock count written in a common form ("only 2 left", "15 available", "25 in XXL", "S (15)"). Unusual phrasings (e.g. "2 are in stock in XL") aren't recognized yet, so they go unchecked; see `harness.md`, Known limitations.
+  2. It finds every `$` amount and every stock count written in a common form, in any capitalization ("Only 2 left", "15 available", "5 are left", "2 are in stock in XL", "25 in XXL", "12 in medium", "S (15)"). Unusual phrasings (e.g. "we're down to 2") aren't recognized, so they go unchecked; see `harness.md`, Known limitations.
   3. A price must match a database price (or a price × quantity, e.g. "two for $136", or a number the shopper typed, e.g. "under $40"). A stock count must match a database quantity.
   4. If anything doesn't match, the reply is **sent back to the model** with the exact problem ("$58 does not match any price returned by your tools this turn") and the model must fix it. The shopper never sees the wrong version.
 - A green **"✓ 1 price · 1 stock count verified"** badge under each chat reply that quotes numbers (it adds "· auto-corrected 1×" if a fix was needed). Hovering explains it was checked against live inventory.
@@ -108,7 +108,7 @@ The four work together: the agent knows your size (2) and your bag (1), can add 
 | Check | Result |
 |---|---|
 | Scripted test (no API): the model first answers "$58 and we have 7 left in XL" | Fact-checker sent it back: *"$58 does not match any price returned by your tools this turn; the stock count 7 does not match any quantity…"*. Final reply: "The Basic Hoodie Big Yale is $68, and there are only 2 left in XL." Record: `retries=1`. |
-| Unit checks | Passes "$68… only 2 left in XL", "Two would be $136", "Under your $70 budget it is $68"; catches "$58" and "only 3 left in XL" (database: 2). |
+| Unit checks | Passes "$68… only 2 left in XL", "Two would be $136", "Under your $70 budget it is $68"; catches "$58" and "only 3 left in XL" (database: 2). After the final review it also catches a wrong count in "Only 99 are left in XXL", "99 are in stock in XL" and "We have 99 in medium" (these used to slip through), with no false alarms on "We carry 27 hoodies" or "3 colors and 6 sizes". |
 | Live chat | Replies show "✓ 2 prices verified", "✓ 1 price · 1 stock count verified". |
 
 ---
