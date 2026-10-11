@@ -219,3 +219,27 @@ Prompts are copied exactly as I typed them.
 > Your 5 adapted + my extras: use all 11 rules (my five rewritten for a shopping chatbot, plus no payments/checkout, never invent deals or policies, privacy, stay in scope, respect, limits and honesty).
 
 *What was lacking after the first prompt:* my rules were written for a coding assistant (deploying, destructive actions), so they needed adapting to what the shop chatbot can actually do, and I asked for more suggestions before choosing.
+
+---
+
+## Problem 13: Push to GitHub and submit the URL
+
+**Prompt:**
+
+> ok heres problem 13 - only one panel:
+>
+> we're going to now need to put our code in a folder named hw4 and then push it to a public github repository - it has to be public so my prof can grade it - I'll submit the repo URL, which needs to be the link graders canopen and clone so please provide that to me
+>
+> we don't want to include .env, campus_customs.db or product images in the gitub repos -- use .gitinogre and include .env.example with placeholders only -- see screenshop to expected file layout and the local-only data pack thats not in git layout as well
+>
+> the agent itself should be four files under backend/ prompts/prompt.md agent.py tools.py and models.py
+>
+> the readme.md should explain how to run the front end and back end after placing the data pack - let me know how it goes and fix any errors as they arise and lmk if  we need to address anything that could lead to points being taken off
+
+**Follow-up:** (confirming the push)
+
+> Yes, name it hw4
+
+*What was lacking after the first prompt:* creating a public repo publishes the code, so the vibe coder confirmed the repo name and showed me the exact file list before pushing.
+
+**Repo:** https://github.com/n-gallagher/hw4
