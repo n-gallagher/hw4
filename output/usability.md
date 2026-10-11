@@ -9,7 +9,7 @@ Four improvements on top of the core shop: two on the front end and two in the a
 | 3 | ✅ Price & stock fact-checker | Agent / backend | Code checks every `$` price and stock count in a chatbot reply against the database before the shopper sees it; a wrong number sends the reply back to be fixed. |
 | 4 | 🤖 Agent can add to your bag | Agent / backend | New `add_to_bag` tool: "add a large Crew Left Chest Hoodie to my bag" checks live stock and drops it into the bag. |
 
-The four work together: the agent knows your size (2) and your bag (1), can add to the bag (4), and every number it quotes is verified (3).
+The four work together: the agent knows your size (2) and your bag (1), can add to the bag (4), and the prices and stock counts it quotes are checked (3).
 
 ---
 
@@ -87,14 +87,14 @@ The four work together: the agent knows your size (2) and your bag (1), can add 
 **What we added**
 - A PydanticAI **output validator** (`verify_prices_and_stock` in `agent.py`, logic in `tools.fact_check`) that runs on every reply **before** the shopper sees it:
   1. It collects every number the tools returned from the database **in this turn** (prices, units per size, bag subtotals).
-  2. It finds every `$` amount and every stock claim in the reply ("only 2 left", "15 available", "25 in XXL").
+  2. It finds every `$` amount and every stock count written in a common form ("only 2 left", "15 available", "25 in XXL", "S (15)"). Unusual phrasings (e.g. "2 are in stock in XL") aren't recognized yet, so they go unchecked; see `harness.md`, Known limitations.
   3. A price must match a database price (or a price × quantity, e.g. "two for $136", or a number the shopper typed, e.g. "under $40"). A stock count must match a database quantity.
   4. If anything doesn't match, the reply is **sent back to the model** with the exact problem ("$58 does not match any price returned by your tools this turn") and the model must fix it. The shopper never sees the wrong version.
 - A green **"✓ 1 price · 1 stock count verified"** badge under each chat reply that quotes numbers (it adds "· auto-corrected 1×" if a fix was needed). Hovering explains it was checked against live inventory.
 - The fact-check result is part of the chat API response (`verified`), and the prompt tells the agent its numbers are checked.
 
 **Why it helps the shopper**
-- A chatbot that quotes the wrong price or invents stock is worse than no chatbot. With this, every number in a reply is guaranteed to match the inventory at that moment.
+- A chatbot that quotes the wrong price or invents stock is worse than no chatbot. With this, every `$` price and every stock count in a recognized form is checked against the inventory at that moment before the shopper sees it.
 - The badge makes the trust visible.
 
 **Why it helps the business**

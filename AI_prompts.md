@@ -242,4 +242,10 @@ Prompts are copied exactly as I typed them.
 
 *What was lacking after the first prompt:* creating a public repo publishes the code, so the vibe coder confirmed the repo name and showed me the exact file list before pushing.
 
+**Follow-up 2:** (after asking for a strict, independent TA-style review of the whole submission)
+
+> fix the must-fix items, then commit and push - go with your suggestions
+
+*What was lacking:* the review found that clicking a chat card changed the URL but left the product below the "From your chat" section (so it looked like nothing happened), the assignment screenshots were published in the public repo, and `usability.md` over-claimed what the fact-checker catches.
+
 **Repo:** https://github.com/n-gallagher/hw4

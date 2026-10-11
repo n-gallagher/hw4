@@ -108,7 +108,7 @@
       <li>Clicked one of the new cards (Champion Reverse Weave Crewneck).</li>
     </ol>
       <p><b>Screenshot 2a: search_cards.png.</b> A <b>"From your chat · 'What crewnecks do you have?'"</b> section appears on the page with 6 crewneck cards (image, name, price, short description, sizes-in-stock bar) a summary line "6 matches · $58 · live prices and stock", and a <b>"See all 29 crewnecks →"</b> link. Handsome Dan says <i>"We have 29 crewnecks in total. Here are the first six, all $58, shown on the page,"</i> and lists them.</p>
-      <p><b>Screenshot 2b: search_card_detail.png.</b> Clicking a chat card opens the single-item page from Problem 3 (<code>/products/champion-reverse-weave-crewneck</code>): large image, full description, $58, colors, size buttons and stock chart (M 12, XL 12, others sold out, matching the DB).</p>
+      <p><b>Screenshot 2b: search_card_detail.png</b> (re-taken 11 Oct 2026 after the card-click fix in Needs revisiting). Clicking a chat card opens the single-item page from Problem 3 (<code>/products/champion-reverse-weave-crewneck</code>): large image, full description, $58, colors, size buttons and stock chart (M 12, XL 12, others sold out, matching the DB).</p>
     <div class="evidence"><b>Tools the agent called:</b> <code>search_products(category='Crewnecks')</code> → <code>show_products([6 crewneck ids])</code>. The API returned these as structured <code>products[]</code>, and the front end rendered them as cards. Database check: <b>29</b> products are crewnecks; all 6 cards are in that set, and every card's $58 price matches the DB.</div>
     <p><b>Full reasoning:</b> A category question makes the agent search the catalogue and return structured product matches that the website turns into real product cards on the page (they weren't there before), and those cards still open the full single-item page.</p>
     </details>
@@ -141,8 +141,8 @@
   <!-- ============ REVISIT ============ -->
   <section class="revisit" id="revisit">
     <h2>⚠ Needs revisiting (found during this test)</h2>
-    <p style="margin:0">Testing found 6 issues; all are <b>fixed and re-tested</b> (screenshots in <a href="#retest">Re-test after fixes</a>).</p>
-    <details class="more"><summary>Show the 6 fixes and 1 note</summary>
+    <p style="margin:0">Testing found 7 issues; all are <b>fixed and re-tested</b> (screenshots in <a href="#retest">Re-test after fixes</a>).</p>
+    <details class="more"><summary>Show the 7 fixes and 1 note</summary>
     <ol>
       <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Usage log lost the list of tools called.</b> In <code>agent.log_usage</code>, the usage summary's numeric <code>tool_calls</code> count overwrote the list of tool calls, so the audit log showed <code>3</code> instead of which tools ran. Fixed by storing the list as <code>tools_called</code>; Check 1 was re-run and the log now shows each call.</li>
       <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Fact-checker skipped size-labelled counts.</b> The first run's badge said "1 stock count verified" although the reply also listed "S (15), L (25), XXL (25)". Stock counts written as <i>S (15)</i> / <i>M: 5</i> weren't recognized. Added that pattern (a test with a wrong "L (99)" is now caught); the re-run shows <b>"4 stock counts verified"</b>. The graded question set still passes 8/8 afterwards.</li>
@@ -150,6 +150,7 @@
       <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Category answers showed only the first 6 of 29 with no way to see the rest.</b> The results section now adds a <b>"See all 29 crewnecks →"</b> link to <code>/products?category=Crewnecks</code> whenever all matches share a category (count read live from the catalogue).</li>
       <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Bag adds reused the "From your chat" banner</b> (in the first run its title became <i>"PLEASE ADD A MEDIUM…"</i>). Replies that only add to the bag no longer replace the banner; the bag drawer shows the item, and the chat button reads <b>"View your bag →"</b>.</li>
       <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Create-account form overflow</b> (reported while reviewing the site): the side-by-side First/Last name fields didn't shrink, so the Last name box spilled past the card's right edge. Fixed in CSS; every input now ends 33 px inside the card, aligned with Email and Password.</li>
+      <li><span class="tag fixed">FIXED &amp; RE-TESTED</span> <b>Clicking a chat card didn't visibly open the product</b> (found in a final review, 11 Oct 2026). The URL changed, but the "From your chat" section stayed at the top of the page, so the product sat below the fold and the screen looked unchanged. Now every page change starts at the top and, on a product page, the chat results sit <i>below</i> the product, so the item you clicked is the first thing you see (a new question asked on a product page still scrolls its results into view). Screenshot 2b was re-taken through the real flow.</li>
       <li><span class="tag note">NOTE</span> The fact-checker can raise a false alarm on unusual phrasings like "2 in M-L range"; the effect is only an extra retry, never a wrong answer to the shopper.</li>
     </ol>
     </details>

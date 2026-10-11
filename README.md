@@ -85,14 +85,13 @@ hw4/
 │   ├── history.py         # saved chat history for logged-in shoppers
 │   ├── images.py          # white-background copies of product photos
 │   └── cost_check.py, build_cost_report.py   # graded test set + report (optional)
-├── output/
-│   ├── harness.md         # full system description: models, tools, safety, specs
-│   ├── design.md          # design choices
-│   ├── usability.md       # usability improvements
-│   ├── app_check.html     # live-site test with screenshots (double-click to open)
-│   ├── app_check_images/  # screenshots linked from app_check.html
-│   └── audit_trail.json   # append-only agent-loop audit trail
-└── screenshots/           # the assignment's problem pages, for reference
+└── output/
+    ├── harness.md         # full system description: models, tools, safety, specs
+    ├── design.md          # design choices
+    ├── usability.md       # usability improvements
+    ├── app_check.html     # live-site test with screenshots (double-click to open)
+    ├── app_check_images/  # screenshots linked from app_check.html
+    └── audit_trail.json   # append-only agent-loop audit trail
 ```
 
 **The agent is four files** under `backend/`: `prompts/prompt.md` (system prompt + safety rules), `agent.py` (wiring, fact-checker, audit trail), `tools.py` (database tools), and `models.py` (Pydantic types). The full explanation is in [`output/harness.md`](output/harness.md).

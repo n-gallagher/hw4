@@ -27,3 +27,6 @@ Thumbs.db
 # Temp / recovery files
 *.tmp
 output/*.corrupt-*.json
+
+# Assignment page screenshots (kept locally, not published)
+screenshots/

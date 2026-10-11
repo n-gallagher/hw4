@@ -703,5 +703,43 @@
       "search_products(category='Quarter-zips', max_price=80)",
       "show_products(product_ids=['benjamin-franklin-1-4-zip', 'berkeley-1-4-zip', 'branford-1-4-zip', 'morse-1-4-zip', 'school-of-architecture-crewneck', 'school-of-art-1-4-zip'])"
     ]
+  },
+  {
+    "time": "2026-10-11T12:21:15",
+    "message": "What crewnecks do you have?",
+    "seconds": 4.4,
+    "model": "claude-haiku-5-5",
+    "effort": "default",
+    "requests": 3,
+    "tool_calls": 2,
+    "input_tokens": 8,
+    "cache_read_tokens": 12973,
+    "cache_write_tokens": 7417,
+    "output_tokens": 464,
+    "est_cost_usd": 0.00129,
+    "tools_called": [
+      "search_products(category='Crewnecks')",
+      "show_products(product_ids=['baseball-left-chest-crewneck', 'champion-mens-triumph-raglan-crew', 'champion-reverse-weave-crewneck', 'davenport-college-crewneck', 'district-vit-crewneck-vintage-bulldog', 'district-vit-crewneck-vintage-standing-bulldog'])"
+    ]
+  },
+  {
+    "time": "2026-10-11T12:21:29",
+    "message": "do you have this in pink?",
+    "seconds": 6.5,
+    "model": "claude-haiku-5-5",
+    "effort": "default",
+    "requests": 5,
+    "tool_calls": 4,
+    "input_tokens": 12,
+    "cache_read_tokens": 32889,
+    "cache_write_tokens": 1472,
+    "output_tokens": 781,
+    "est_cost_usd": 0.000905,
+    "tools_called": [
+      "search_products(category='Crewnecks', color='pink')",
+      "search_products(category='Crewnecks', color='coral')",
+      "search_products(category='Crewnecks', color='red')",
+      "show_products(product_ids=['baseball-left-chest-crewneck', 'champion-mens-triumph-raglan-crew'])"
+    ]
   }
 ]

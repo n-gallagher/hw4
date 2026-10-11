@@ -316,10 +316,10 @@ All tools read the database **read-only** except `add_to_bag`, which only change
   run_chat → ShopReply{reply, product_ids} → main.py rebuilds cards from the DB
   → ChatResponse{reply, products[]}            ← API contract
   → ChatWidget: reply + thumbnails + "6 items on the page ↑"; showResults(question, products)
-  → ChatResults.tsx at the top of <main> on every page: "From your chat · “What crewnecks…”",
+  → ChatResults.tsx at the top of <main> (below the product on product pages): "From your chat · “What crewnecks…”",
     match count + price range, "See all 29 crewnecks →", full ProductCard grid
 ```
-- Chat cards use the same `ProductCard` as the Products page, so clicking one opens the single-item page from Problem 3.
+- Chat cards use the same `ProductCard` as the Products page, so clicking one opens the single-item page from Problem 3. Every page change starts at the top, and on a product page the results section moves below the product, so the item you clicked is what you see first (new results still scroll into view).
 - Replies that only add to the bag don't replace the results banner (the bag drawer shows the item).
 - Verified: 6 crewneck cards appeared on a page that had none; clicking a card opened its detail page (`output/app_check.html`, Check 2).
 
@@ -445,7 +445,7 @@ Written in `prompts/prompt.md` (section "Safety rules"); the agent must follow t
 ## 14. Known limitations
 
 - The bag is stored in the browser (per account on that device), not on the server; there is no checkout or payment yet.
-- The fact-checker checks numbers written as "$68", "5 left", "15 available", "S (15)", "M: 5"; unusual phrasings may go unchecked, and "2 in M-L range" style text can cause a harmless extra retry.
+- The fact-checker checks numbers written as "$68", "5 left", "15 available", "S (15)", "M: 5"; unusual phrasings (e.g. "only 2 … are in stock in XL", "5 are left in medium") go unchecked, any number a tool returned is accepted as a price, and "2 in M-L range" style text can cause a harmless extra retry.
 - Audit entries written before the Problem 12 timestamp fix (the first few runs on 2026-10-11) have a `run_start` time a few seconds after their steps; the file is append-only, so those entries were left as recorded.
 - A catalogue name typo ("Yale Sports Creqneck Field Hockey") is in the source data.
 - Graded tests are single-turn; multi-turn memory was tested live (section 9), not in the graded set.

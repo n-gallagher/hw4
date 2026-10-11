@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
@@ -20,6 +21,14 @@ import NotFound from './pages/NotFound'
 
 export default function App() {
   const { pathname } = useLocation()
+  // On a product page the product comes first; chat results sit below it (so clicking a chat card visibly opens the item).
+  const productPage = /^\/products\/[^/]+/.test(pathname)
+
+  // Start every new page at the top.
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   return (
     <AuthProvider>
       <ShopProvider>
@@ -27,7 +36,7 @@ export default function App() {
           <div className="app">
             <NavBar />
             <main className="main">
-              <ChatResults />
+              {!productPage && <ChatResults />}
               {/* keyed by page so each route fades in (page transition) */}
               <div className="page-enter" key={pathname}>
                 <Routes>
@@ -41,6 +50,7 @@ export default function App() {
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </div>
+              {productPage && <ChatResults />}
             </main>
             <RevealOnScroll />
             <Footer />

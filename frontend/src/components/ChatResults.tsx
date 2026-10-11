@@ -4,6 +4,8 @@ import { formatPrice, getProducts } from '../api'
 import ProductCard from './ProductCard'
 import { useChat } from './useChat'
 
+let lastScrolledId: number | undefined
+
 // "From your chat": the products the agent picked (via show_products), rendered on the page
 // as full product cards. Each card links to the same single-item page as the Products grid.
 export default function ChatResults() {
@@ -23,9 +25,12 @@ export default function ChatResults() {
       .catch(() => {})
   }, [])
 
-  // Bring each new set of matches into view.
+  // Bring each new set of matches into view (once: not again when this section moves on a page change).
   useEffect(() => {
-    if (resultsId) ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (resultsId && resultsId !== lastScrolledId) {
+      lastScrolledId = resultsId
+      ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }, [resultsId])
 
   if (!results || results.products.length === 0) return null
